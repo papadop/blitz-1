@@ -895,18 +895,19 @@ void Array<T_numtype, N_rank>::resizeAndPreserve(const int length0,const int len
             length3, length4, length5, length6, length7, length8, length9,
             length10), storage_);
 
-        if (numElements()) {
-            const Range overlap0(fromStart, (extrema::min)(B.ubound(0), ubound(0)));
-            const Range overlap1(fromStart, (extrema::min)(B.ubound(1), ubound(1)));
-            const Range overlap2(fromStart, (extrema::min)(B.ubound(2), ubound(2)));
-            const Range overlap3(fromStart, (extrema::min)(B.ubound(3), ubound(3)));
-            const Range overlap4(fromStart, (extrema::min)(B.ubound(4), ubound(4)));
-            const Range overlap5(fromStart, (extrema::min)(B.ubound(5), ubound(5)));
-            const Range overlap6(fromStart, (extrema::min)(B.ubound(6), ubound(6)));
-            const Range overlap7(fromStart, (extrema::min)(B.ubound(7), ubound(7)));
-            const Range overlap8(fromStart, (extrema::min)(B.ubound(8), ubound(8)));
-            const Range overlap9(fromStart, (extrema::min)(B.ubound(9), ubound(9)));
-            const Range overlap10(fromStart, (extrema::min)(B.ubound(10), ubound(10)));
+        if (numElements())
+        {
+            Range overlap0 = Range(fromStart, (extrema::min)(B.ubound(0), ubound(0)));
+            Range overlap1 = Range(fromStart, (extrema::min)(B.ubound(1), ubound(1)));
+            Range overlap2 = Range(fromStart, (extrema::min)(B.ubound(2), ubound(2)));
+            Range overlap3 = Range(fromStart, (extrema::min)(B.ubound(3), ubound(3)));
+            Range overlap4 = Range(fromStart, (extrema::min)(B.ubound(4), ubound(4)));
+            Range overlap5 = Range(fromStart, (extrema::min)(B.ubound(5), ubound(5)));
+            Range overlap6 = Range(fromStart, (extrema::min)(B.ubound(6), ubound(6)));
+            Range overlap7 = Range(fromStart, (extrema::min)(B.ubound(7), ubound(7)));
+            Range overlap8 = Range(fromStart, (extrema::min)(B.ubound(8), ubound(8)));
+            Range overlap9 = Range(fromStart, (extrema::min)(B.ubound(9), ubound(9)));
+            Range overlap10 = Range(fromStart, (extrema::min)(B.ubound(10), ubound(10)));
             B(overlap0, overlap1, overlap2, overlap3, overlap4, overlap5,
               overlap6, overlap7, overlap8, overlap9, overlap10)
                 = (*this)(overlap0, overlap1, overlap2, overlap3, overlap4,
