@@ -60,6 +60,7 @@ blitz.pc.in
 *.exe
 *.out
 *.app
+<<<<<<< HEAD
 
 # Editors trash
 .swp
