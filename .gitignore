@@ -1,32 +1,28 @@
-ChangeLog_*
-Makefile
-Makefile.in
-.ii
-.ti
-m4
-.swp
-.orig
-cxx_repository
-Template.dir
-ii_files
-ti_files
-aclocal.m4
-autom4te.cache
-blitz-uninstalled.pc
-blitz.pc
-blitz.pc.in
-config
-config.cache
-config.guess
-config.h.in
-config.log
-config.status
-config.sub
-configure
-depcomp
-install-sh
-ltconfig
-libtool
-ltmain.sh
-mkinstalldirs
-missing
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
