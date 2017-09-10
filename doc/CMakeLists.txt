@@ -52,6 +52,7 @@ if (TEXI2HTML)
     add_custom_command(COMMAND ${TEXI2HTML} ${TEXI_PROG_ARGS} --subdir=blitz.html --split=chapter ${TEXI_SRC}
                        TARGET  blitz-doc
                        OUTPUTS blitz.html)
+    install(DIRECTORY blitz.html DESTINATION ${CMAKE_INSTALL_DOCDIR})
 endif()
 
 find_program(TEXI2PDF texi2pdf
@@ -63,6 +64,7 @@ if (TEXI2PDF)
     add_custom_command(COMMAND TEXINPUTS=:${TEXINFO_TEX_DIR}:; ${TEXI2PDF} ${TEXI_PROG_ARGS} ${TEXI_SRC}
                        TARGET  blitz-doc
                        OUTPUTS blitz.pdf)
+    install(FILES blitz.pdf DESTINATION ${CMAKE_INSTALL_DOCDIR})
 endif()
 
 set_directory_properties(PROPERTIES ADDITIONAL_MAKE_CLEAN_FILES
@@ -76,7 +78,5 @@ endforeach()
 
 set(CMAKE_INSTALL_DOCDIR ${CMAKE_INSTALL_DOCDIR}-${blitz_MAJOR}.${blitz_MINOR}.${blitz_PATCH})
 
-install(DIRECTORY blitz.html DESTINATION ${CMAKE_INSTALL_DOCDIR})
-install(FILES blitz.pdf DESTINATION ${CMAKE_INSTALL_DOCDIR})
 install(FILES blitz.info DESTINATION ${CMAKE_INSTALL_INFODIR})
 install(FILES ${BLITZ_INFORMATION} DESTINATION ${CMAKE_INSTALL_DOCDIR})
