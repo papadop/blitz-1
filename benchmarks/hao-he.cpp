@@ -10,7 +10,7 @@
 
 BZ_USING_NAMESPACE(blitz)
 
-#include <blitz/vector.h>
+#include <blitz/vector2.h>
 
 typedef Array<complex<double>,1> CArray;
 
@@ -38,7 +38,7 @@ void version1(CArray& A, CArray& B, int nIters)
         B += A*A;
     }
     timer.stop();
-    cout << "Time using array notation b += a*a: " << timer.elapsedSeconds()
+    cout << "Time using array notation b += a*a: " << timer.elapsed()
          << endl;
 }
 
@@ -54,7 +54,7 @@ void version2(CArray& A, CArray& B, int nIters)
         B += sqr(A);
     }
     timer.stop();
-    cout << "Time using array notation b += sqr(a): " << timer.elapsedSeconds()
+    cout << "Time using array notation b += sqr(a): " << timer.elapsed()
          << endl;
 }
 
@@ -75,7 +75,7 @@ void version2b(CArray& A, CArray& B, int nIters)
         version2c(A,B);
     }
     timer.stop();
-    cout << "Time using array notation b += sqr(a): " << timer.elapsedSeconds()
+    cout << "Time using array notation b += sqr(a): " << timer.elapsed()
          << endl;
 }
 
@@ -94,7 +94,7 @@ void version3(CArray& A, CArray& B, int nIters)
             B(j) += A(j) * A(j);
     }
     timer.stop();
-    cout << "Time using low-level version: " << timer.elapsedSeconds()
+    cout << "Time using low-level version: " << timer.elapsed()
          << endl;
 }
 
@@ -122,7 +122,7 @@ void version4(CArray& A, CArray& B, int nIters)
         }
     }
     timer.stop();
-    cout << "Time using really low-level version: " << timer.elapsedSeconds()
+    cout << "Time using really low-level version: " << timer.elapsed()
          << endl;
 }
            

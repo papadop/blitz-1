@@ -7,8 +7,8 @@
 //      Computers in Physics Vol. 10 No. 5 (1996), p. 458
 //
 
-#include <blitz/vector.h>
-#include <blitz/rand-uniform.h>
+#include <blitz/vector2.h>
+#include <random/uniform.h>
 #include <blitz/benchext.h>
 #ifdef BZ_HAVE_STD
 #include <valarray>
@@ -48,9 +48,7 @@ void HaneyBlitzVersion(BenchmarkExt<int>& bench);
 
 int main()
 {
-	BenchmarkExt<int> bench("Haney Inductance Calculation", 3);
-
-	bench.setRateDescription("Operations/s");
+	BenchmarkExt<int> bench("Haney Inductance Calculation (Operations/s)", 3);
 
 	bench.beginBenchmarking();
 
@@ -67,9 +65,9 @@ int main()
 
 void initializeRandom(float* data, int length)
 {
-	Random<Uniform> unif(1.0, 2.0);
+	ranlib::Uniform<double> unif;
 	for (int i=0; i < length; ++i)
-		data[i] = unif.random();
+		data[i] = unif.random()+1.0;
 }
 
 void HaneyCVersion(BenchmarkExt<int>& bench)

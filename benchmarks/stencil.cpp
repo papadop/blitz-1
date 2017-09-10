@@ -3,7 +3,7 @@
 #include <blitz/array.h>
 #include <blitz/traversal.h>
 #include <blitz/benchext.h>
-#include <blitz/rand-uniform.h>
+#include <random/uniform.h>
 #include <blitz/array/stencil-et.h>
 
 BZ_USING_NAMESPACE(blitz)
@@ -91,7 +91,7 @@ int main()
 
 void initializeRandomDouble(double* data, int numElements, int stride = 1)
 {
-    static Random<Uniform> rnd;
+    static ranlib::Uniform<double> rnd;
 
     for (int i=0; i < numElements; ++i)
         data[i*stride] = rnd.random();

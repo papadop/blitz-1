@@ -1,18 +1,18 @@
-SET(blitz_LIB_SRCS ../src/globals.cpp)
+set(blitz_LIB_SRCS ../src/globals.cpp)
 
-ADD_LIBRARY(blitz SHARED ${blitz_LIB_SRCS})
-ADD_DEPENDENCIES(blitz generated-headers)
+add_library(blitz SHARED ${blitz_LIB_SRCS})
+add_dependencies(blitz generated-headers)
 
-SET_TARGET_PROPERTIES(blitz PROPERTIES
-                      VERSION 0.9.0
+set_target_properties(blitz PROPERTIES
+                      VERSION ${blitz_VERSION}
                       SOVERSION 0
                       CLEAN_DIRECT_OUTPUT 1)
 
-SET(BLITZ_LIBS blitz)
-IF (NOT WIN32)
-    ADD_LIBRARY(blitz-static STATIC ${blitz_LIB_SRCS})
-    ADD_DEPENDENCIES(blitz-static generated-headers)
-    SET(BLITZ_LIBS ${BLITZ_LIBS} blitz-static)
+set(BLITZ_LIBS blitz)
+if (NOT WIN32)
+    add_library(blitz-static STATIC ${blitz_LIB_SRCS})
+    add_dependencies(blitz-static generated-headers)
+    set(BLITZ_LIBS ${BLITZ_LIBS} blitz-static)
 
     #SET(BLITZ-STATIC-DEFS)
     #IF (NOT WIN32)
@@ -23,15 +23,15 @@ IF (NOT WIN32)
     #    SET(BLITZ-STATIC-DEFS COMPILE_DEFINITIONS "${BLITZ-STATIC-DEFS};BLITZ_STATIC_LIBRARY")
     #ENDIF()
 
-    SET_TARGET_PROPERTIES(blitz-static PROPERTIES
+    set_target_properties(blitz-static PROPERTIES
                           OUTPUT_NAME blitz
                           ${BLITZ-STATIC-DEFS}
                           CLEAN_DIRECT_OUTPUT 1)
-ENDIF()
+endif()
 
-INSTALL(TARGETS ${BLITZ_LIBS}
+install(TARGETS ${BLITZ_LIBS}
         EXPORT  blitz
         #RUNTIME DESTINATION bin COMPONENT runtime
-        ARCHIVE DESTINATION lib COMPONENT devel
-        LIBRARY DESTINATION lib COMPONENT devel
+        ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR} COMPONENT devel
+        LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR} COMPONENT devel
 )
