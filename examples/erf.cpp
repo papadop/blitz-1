@@ -2,7 +2,10 @@
  * erf.cpp        Blitz++ Vector<T> example
  *****************************************************************************/
 
+#include <iostream>
 #include <blitz/blitz.h>
+
+BZ_USING_NAMESPACE(std)
 
 #ifdef BZ_HAVE_IEEE_MATH
 
@@ -45,7 +48,6 @@ int main()
     Vector<double> z = erf(R * dt);
     cout << "  Built-in: " << z(displayRange+1) << endl;
 
-
     // Naive summation
     Vector<double> z1 = accumulate(m_2_sqrtpi * exp(-sqr(R * dt)) * dt);
     cout << "     Naive: " << z1(displayRange+1) << endl;
@@ -53,7 +55,6 @@ int main()
     // Calculate the rms error
     double error1 = sqrt(mean(sqr(z1 - z)));
     cout << "RMS Error: " << error1 << endl;
-
 
     // For the following rules, it's easier to work with a
     // sampled integrand.
@@ -67,7 +68,6 @@ int main()
     cout << " Trapezoid: " << z2(displayRange) << endl;
     cout << "RMS Error: " << sqrt(mean(sqr(z2-z(J)))) << endl;
 
-
     // Three-point Simpson's (parabolic)
     Range I(1, numSamples-2);
     Vector<double> z3 = accumulate(dt / 6.0 * (a(I-1) + 4 * a(I) + a(I+1)));
@@ -75,15 +75,10 @@ int main()
     cout << " Parabolic: " << z3(displayRange) << endl;
     cout << "RMS Error: " << sqrt(mean(sqr(z3 - z(I)))) << endl;
 
-
     return 0;
 }
 
 #else
-
-#include <iostream>
-
-BZ_USING_NAMESPACE(std)
 
 int main()
 {

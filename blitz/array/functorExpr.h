@@ -275,7 +275,7 @@ public:
 
     void advance() { iter_.advance(); }
 
-    void advance(const int n) { iter_.advance(n); }
+    void advance(const diffType n) { iter_.advance(n); }
 
     void loadStride(const int rank) { iter_.loadStride(rank); }
 
@@ -587,7 +587,7 @@ public:
         iter2_.advance();
     }
   
-    void advance(const int n) {
+    void advance(const diffType n) {
         iter1_.advance(n);
         iter2_.advance(n);
     }
@@ -972,7 +972,7 @@ public:
         iter3_.advance();
     }
   
-    void advance(const int n) {
+    void advance(const diffType n) {
         iter1_.advance(n);
         iter2_.advance(n);
         iter3_.advance(n);

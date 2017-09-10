@@ -770,7 +770,6 @@ protected:
     T_expr iter_;
 };
 
-
 template<typename P_expr1, typename P_expr2, typename P_op>
 class _bz_ArrayExprBinaryOp {
 public:

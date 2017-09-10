@@ -376,11 +376,11 @@ public:
 
   // sliceinfo for expressions
   template<typename T1, typename T2 = nilArraySection, 
-	   class T3 = nilArraySection, typename T4 = nilArraySection, 
-	   class T5 = nilArraySection, typename T6 = nilArraySection, 
-	   class T7 = nilArraySection, typename T8 = nilArraySection, 
-	   class T9 = nilArraySection, typename T10 = nilArraySection, 
-	   class T11 = nilArraySection>
+	   typename T3 = nilArraySection, typename T4 = nilArraySection, 
+	   typename T5 = nilArraySection, typename T6 = nilArraySection, 
+	   typename T7 = nilArraySection, typename T8 = nilArraySection, 
+	   typename T9 = nilArraySection, typename T10 = nilArraySection, 
+	   typename T11 = nilArraySection>
   class SliceInfo {
   public:    
     typedef FastArrayCopyIterator<P_numtype, blitz::SliceInfo<P_numtype, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11>::rank> T_slice;
