@@ -29,8 +29,7 @@
  *
  ***************************************************************************/
 
-#ifndef BZ_META_MATVEC_H
-#define BZ_META_MATVEC_H
+#pragma once
 
 #ifndef BZ_BLITZ_H
  #include <blitz/blitz.h>
@@ -188,6 +187,3 @@ public:
 };
 
 BZ_NAMESPACE_END
-
-#endif // BZ_META_MATVEC_H
-

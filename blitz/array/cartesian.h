@@ -28,8 +28,7 @@
  *    https://sourceforge.net/projects/blitz/
  *
  ****************************************************************************/
-#ifndef BZ_ARRAY_CARTESIAN_H
-#define BZ_ARRAY_CARTESIAN_H
+#pragma once
 
 BZ_NAMESPACE(blitz)
 
@@ -342,6 +341,3 @@ void CartesianProductIterator<T_tuple, T_container,
 }
 
 BZ_NAMESPACE_END
-
-#endif // BZ_ARRAY_CARTESIAN_H
-

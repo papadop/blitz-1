@@ -90,8 +90,7 @@
 
 */
 
-#ifndef BZ_ARRAY_FUNCTOREXPR_H
-#define BZ_ARRAY_FUNCTOREXPR_H
+#pragma once
 
 #ifndef BZ_ARRAY_H
  #error <blitz/array/functorExpr.h> must be included via <blitz/array.h>
@@ -1508,8 +1507,3 @@ funcname(const BZ_BLITZ_SCOPE(ETBase)<P_expr1>& a,                        \
       (_bz_Functor ## classname ## funcname(*this),			\
        a.unwrap(), b.unwrap(), c.unwrap());				\
 }
-
-
-
-#endif // BZ_ARRAY_FUNCTOREXPR_H
-

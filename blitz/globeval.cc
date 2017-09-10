@@ -27,8 +27,7 @@
  *    https://sourceforge.net/projects/blitz/
  *
  ****************************************************************************/
-#ifndef BZ_GLOBEVAL_CC
-#define BZ_GLOBEVAL_CC
+#pragma once
 
 #include <blitz/ranks.h>
 #include <blitz/tvevaluate.h>
@@ -1447,6 +1446,3 @@ _bz_evaluateWithTiled2DTraversal(T_dest& dest, T_expr expr, T_update)
 #endif // BZ_ARRAY_2D_NEW_STENCIL_TILING
 
 BZ_NAMESPACE_END
-
-#endif // BZ_ARRAYEVAL_CC
-

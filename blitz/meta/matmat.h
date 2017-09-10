@@ -29,8 +29,7 @@
  *
  ***************************************************************************/
 
-#ifndef BZ_META_MATMAT_H
-#define BZ_META_MATMAT_H
+#pragma once
 
 #ifndef BZ_TINYMAT_H
  #error <blitz/meta/matmat.h> must be included via <blitz/tinymat.h>
@@ -123,6 +122,3 @@ product(const TinyMatrix<T_numtype1, N_rows1, N_columns1>& a,
 }
 
 BZ_NAMESPACE_END
-
-#endif // BZ_META_MATMAT_H
-

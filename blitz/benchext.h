@@ -30,17 +30,12 @@
  *
  ***************************************************************************/
 
-#ifndef BZ_BENCHEXT_H
+#pragma once
 #define BZ_BENCHEXT_H
 
-//#ifndef BZ_MATRIX_H
 #include <blitz/array.h>
-//#endif
- #include <vector>
-
-#ifndef BZ_TIMER_H
- #include <blitz/timer.h>
-#endif
+#include <vector>
+#include <blitz/timer.h>
 
 #include <math.h>
 #include <string>
@@ -133,5 +128,3 @@ protected:
 BZ_NAMESPACE_END
 
 #include <blitz/benchext.cc>  
-
-#endif // BZ_BENCHEXT_H

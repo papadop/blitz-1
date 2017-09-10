@@ -29,8 +29,7 @@
  *
  ***************************************************************************/
 
-#ifndef BZ_DEBUG_H
-#define BZ_DEBUG_H
+#pragma once
 
 #ifdef BZ_HAVE_STD
   #include <cstdlib>
@@ -279,5 +278,3 @@ BZ_DECL_SLFNT(complex<long double>, "complex<long double>");
 #endif // !BZ_HAVE_RTTI
 
 BZ_NAMESPACE_END
-
-#endif // BZ_DEBUG_H

@@ -27,8 +27,7 @@
  *    https://sourceforge.net/projects/blitz/
  *
  ***************************************************************************/
-#ifndef BZ_TINYVEC2IO_CC
-#define BZ_TINYVEC2IO_CC
+#pragma once
 
 #include <blitz/tinyvec2.h>
 
@@ -82,5 +81,3 @@ istream& operator>>(istream& is, TinyVector<T_numtype, N_length>& x)
 }
 
 BZ_NAMESPACE_END
-
-#endif // BZ_TINYVECIO_CC

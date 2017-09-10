@@ -28,8 +28,7 @@
  *    https://sourceforge.net/projects/blitz/
  *
  ****************************************************************************/
-#ifndef BZ_ARRAYWHERE_H
-#define BZ_ARRAYWHERE_H
+#pragma once
 
 #include <blitz/blitz.h>
 #include <blitz/promote.h>
@@ -433,6 +432,3 @@ where(const T1& a, const T2& b, const T3& c)
 }
 
 BZ_NAMESPACE_END
-
-#endif // BZ_ARRAYWHERE_H
-

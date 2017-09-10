@@ -28,8 +28,7 @@
  *    https://sourceforge.net/projects/blitz/
  *
  ****************************************************************************/
-#ifndef BZ_ARRAY_OPS_H
-#define BZ_ARRAY_OPS_H
+#pragma once
 
 #include <blitz/ops.h>
 #include <blitz/funcs.h>
@@ -129,5 +128,3 @@ BZ_DECLARE_ARRAY_ET_SCALAR_OPS(complex<long double>)
 
 
 BZ_NAMESPACE_END
-
-#endif // BZ_ARRAY_OPS_H

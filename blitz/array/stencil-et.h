@@ -28,8 +28,7 @@
  *    https://sourceforge.net/projects/blitz/
  *
  ****************************************************************************/
-#ifndef BZ_ARRAY_STENCIL_ET_H
-#define BZ_ARRAY_STENCIL_ET_H
+#pragma once
 
 #include <blitz/blitz.h>
 #include <blitz/tinyvec2.h>
@@ -396,5 +395,3 @@ BZ_NAMESPACE_END
 
 // now include the generated file containing all the implementation classes.
 #include <blitz/array/stencil-classes.cc>
-
-#endif // BZ_ARRAY_STENCIL_ET_H

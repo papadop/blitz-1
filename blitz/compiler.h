@@ -27,9 +27,7 @@
  *
  ***************************************************************************/
 
-
-#ifndef BZ_COMPILER_H
-#define BZ_COMPILER_H
+#pragma once
 
 // The file <blitz/bzconfig.h> is used to select a compiler-specific
 // config.h file that is generated automatically by configure.
@@ -174,6 +172,3 @@
 
 #define BZ_LIKELY(x)   (x)
 #define BZ_UNLIKELY(x) (x)
-
-#endif // BZ_COMPILER_H
-

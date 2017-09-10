@@ -44,8 +44,7 @@
  *
  */
 
-#ifndef BZ_RAND_MT
-#define BZ_RAND_MT
+#pragma once
 
 #include <blitz/blitz.h>
 
@@ -340,5 +339,3 @@ private:
 };
 
 BZ_NAMESPACE_END
-
-#endif // BZ_RAND_MT

@@ -29,8 +29,7 @@
  *
  ***************************************************************************/
 
-#ifndef BZ_MEMBLOCK_H
-#define BZ_MEMBLOCK_H
+#pragma once
 
 #include <blitz/blitz.h>
 #include <blitz/simdtypes.h>
@@ -542,5 +541,3 @@ private:
 BZ_NAMESPACE_END
 
 #include <blitz/memblock.cc>
-
-#endif // BZ_MEMBLOCK_H

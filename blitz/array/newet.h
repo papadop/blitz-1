@@ -28,8 +28,7 @@
  *    https://sourceforge.net/projects/blitz/
  *
  ****************************************************************************/
-#ifndef BZ_ARRAY_NEWET_H
-#define BZ_ARRAY_NEWET_H
+#pragma once
 
 // Gang include of new expression templates implementation.
 
@@ -39,5 +38,3 @@
 // ET support for functors acting on Arrays
 
 #include <blitz/array/functorExpr.h>
-
-#endif

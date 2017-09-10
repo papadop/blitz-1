@@ -1,5 +1,4 @@
-#ifndef BZ_SIMDTYPES_H
-#define BZ_SIMDTYPES_H
+#pragma once
 
 #include <blitz/blitz.h>
 #include <stdint.h>
@@ -69,5 +68,3 @@ inline bool isVectorAligned(const T* restrict pointer) {
 
 
 BZ_NAMESPACE_END
-
-#endif

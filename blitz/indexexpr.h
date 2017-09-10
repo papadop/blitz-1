@@ -29,8 +29,7 @@
  *
  ***************************************************************************/
 
-#ifndef BZ_INDEXEXPR_H
-#define BZ_INDEXEXPR_H
+#pragma once
 
 #include <blitz/tinyvec2.h>
 #include <blitz/prettyprint.h>
@@ -269,6 +268,3 @@ BZ_NAMESPACE_END // tensor
 #endif
 
 BZ_NAMESPACE_END
-
-#endif // BZ_INDEXEXPR_H
-

@@ -29,8 +29,7 @@
  *
  ***************************************************************************/
 
-#ifndef BZ_RANDOM_DISCRETE_UNIFORM_H
-#define BZ_RANDOM_DISCRETE_UNIFORM_H
+#pragma once
 
 #include <random/default.h>
 
@@ -66,5 +65,3 @@ private:
 };
 
 BZ_NAMESPACE_END
-
-#endif // BZ_RANDOM_DISCRETE_UNIFORM_H

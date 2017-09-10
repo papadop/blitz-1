@@ -27,13 +27,12 @@
  *    https://sourceforge.net/projects/blitz/
  *
  ****************************************************************************/
-#ifndef BZ_ARRAYCOMPLEX_CC
-#define BZ_ARRAYCOMPLEX_CC
+#pragma once
 
 // Special functions for complex arrays
 
 #ifndef BZ_ARRAY_H
- #error <blitz/array/complex.cc> must be included via <blitz/array/array.h>
+ #error <blitz/array/complex.cc> must be included via <blitz/array.h>
 #endif
 
 BZ_NAMESPACE(blitz)
@@ -56,6 +55,3 @@ inline Array<T_numtype, N_rank> imag(const Array<complex<T_numtype>,N_rank>& A)
 #endif
 
 BZ_NAMESPACE_END
-
-#endif // BZ_ARRAYCOMPLEX_CC
-

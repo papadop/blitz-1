@@ -36,16 +36,10 @@
  * NEEDS_WORK: turn this into structured code.
  */
 
-#ifndef BZ_RANDOM_BETA
-#define BZ_RANDOM_BETA
+#pragma once
 
-#ifndef BZ_RANDOM_UNIFORM
- #include <random/uniform.h>
-#endif
-
-#ifndef BZ_NUMINQUIRE_H
- #include <blitz/numinquire.h>
-#endif
+#include <random/uniform.h>
+#include <blitz/numinquire.h>
 
 BZ_NAMESPACE(ranlib)
 
@@ -311,5 +305,3 @@ S220:
 }
 
 BZ_NAMESPACE_END
-
-#endif // BZ_RANDOM_BETA

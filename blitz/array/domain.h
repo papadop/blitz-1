@@ -28,8 +28,7 @@
  *    https://sourceforge.net/projects/blitz/
  *
  ****************************************************************************/
-#ifndef BZ_DOMAIN_H
-#define BZ_DOMAIN_H
+#pragma once
 
 #include <blitz/blitz.h>
 #include <blitz/et-forward.h>
@@ -169,5 +168,3 @@ strip(const TinyVector<int,N_rank>& startPosition,const int stripDimension,const
 }
 
 BZ_NAMESPACE_END
-
-#endif // BZ_DOMAIN_H

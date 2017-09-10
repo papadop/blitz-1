@@ -15,12 +15,9 @@
  * is tiny seems a bit flaky.
  */
 
-#ifndef BZ_RANDOM_F
-#define BZ_RANDOM_F
+#pragma once
 
-#ifndef BZ_RANDOM_GAMMA
- #include <random/gamma.h>
-#endif
+#include <random/gamma.h>
 
 BZ_NAMESPACE(ranlib)
 
@@ -88,5 +85,3 @@ protected:
 };
 
 BZ_NAMESPACE_END
-
-#endif // BZ_RANDOM_F

@@ -29,9 +29,7 @@
  *
  **************************************************************************/
 
-
-#ifndef BZ_META_MATASSIGN_H
-#define BZ_META_MATASSIGN_H
+#pragma once
 
 BZ_NAMESPACE(blitz)
 
@@ -81,5 +79,3 @@ public:
 
 
 BZ_NAMESPACE_END
-
-#endif // BZ_META_ASSIGN_H

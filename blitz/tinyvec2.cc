@@ -28,8 +28,7 @@
  *
  ***************************************************************************/
 
-#ifndef BZ_TINYVEC2_CC
-#define BZ_TINYVEC2_CC
+#pragma once
 
 #include <blitz/tinyvec2.h>
 #include <blitz/update.h>
@@ -135,5 +134,3 @@ BZ_NAMESPACE_END
 #include <blitz/tv2fastiter.h>  // Iterators
 //#include <blitz/tv2assign.h> unused now?
 #include <blitz/tinyvec2io.cc>
-
-#endif // BZ_TINYVEC_CC

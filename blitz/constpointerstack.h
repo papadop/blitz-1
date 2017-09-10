@@ -1,5 +1,4 @@
-#ifndef BZ_POINTERSTACK_H
-#define BZ_POINTERSTACK_H
+#pragma once
 
 #include <blitz/blitz.h>
 
@@ -27,5 +26,3 @@ private:
 };
 
 BZ_NAMESPACE_END
-
-#endif

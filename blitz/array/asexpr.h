@@ -28,8 +28,7 @@
  *    https://sourceforge.net/projects/blitz/
  *
  ***************************************************************************/
-#ifndef BZ_ASEXPR_H
-#define BZ_ASEXPR_H
+#pragma once
 
 #include <blitz/et-forward.h>
 #include <blitz/numtrait.h>
@@ -300,5 +299,3 @@ struct BzBinaryStencilResult {
 #endif /* BZ_HAVE_TEMPLATES_AS_TEMPLATE_ARGUMENTS */
 
 BZ_NAMESPACE_END
-
-#endif

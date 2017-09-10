@@ -28,8 +28,7 @@
  *    https://sourceforge.net/projects/blitz/
  *
  ****************************************************************************/
-#ifndef BZ_ARRAY_TV2FASTITER_H
-#define BZ_ARRAY_TV2FASTITER_H
+#pragma once
 
 #include <blitz/blitz.h>
 
@@ -490,5 +489,3 @@ public:
 
 
 BZ_NAMESPACE_END
-
-#endif // BZ_ARRAY_FASTITER_H

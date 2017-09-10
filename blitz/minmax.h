@@ -29,8 +29,7 @@
  *
  ***************************************************************************/
 
-#ifndef BZ_MINMAX_H
-#define BZ_MINMAX_H
+#pragma once
 
 #include <blitz/promote.h>
 
@@ -73,5 +72,3 @@ void minmax(const T1& x,T2& min,T2& max) {
 BZ_NAMESPACE_END
 
 BZ_NAMESPACE_END
-
-#endif

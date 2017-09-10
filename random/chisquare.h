@@ -11,12 +11,9 @@
  * Adapter's notes:
  */
 
-#ifndef BZ_RANDOM_CHISQUARE
-#define BZ_RANDOM_CHISQUARE
+#pragma once
 
-#ifndef BZ_RANDOM_GAMMA
- #include <random/gamma.h>
-#endif
+#include <random/gamma.h>
 
 BZ_NAMESPACE(ranlib)
 
@@ -61,5 +58,3 @@ protected:
 };
 
 BZ_NAMESPACE_END
-
-#endif // BZ_RANDOM_CHISQUARE

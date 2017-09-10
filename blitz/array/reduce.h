@@ -30,7 +30,7 @@
  *    https://sourceforge.net/projects/blitz/
  *
  ****************************************************************************/
-#ifndef BZ_ARRAYREDUCE_H
+#pragma once
 #define BZ_ARRAYREDUCE_H
 
 #include <blitz/reduce.h>
@@ -398,5 +398,3 @@ BZ_DECL_ARRAY_FULL_REDUCE_INDEXVECTOR(maxIndex, ReduceMaxIndexVector)
 BZ_NAMESPACE_END
 
 #include <blitz/array/reduce.cc>
-
-#endif // BZ_ARRAYREDUCE_H

@@ -29,8 +29,7 @@
  *
  ***************************************************************************/
 
-#ifndef BZ_UPDATE_H
-#define BZ_UPDATE_H
+#pragma once
 
 #include <blitz/blitz.h>
 
@@ -80,6 +79,3 @@ BZ_DECL_UPDATER(_bz_shiftl_update, <<=, "<<=");
 BZ_DECL_UPDATER(_bz_shiftr_update, >>=, ">>=");
 
 BZ_NAMESPACE_END
-
-#endif // BZ_UPDATE_H
-

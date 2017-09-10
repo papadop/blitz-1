@@ -28,13 +28,13 @@
  *    https://sourceforge.net/projects/blitz/
  *
  ***************************************************************************/
+#pragma once
+
+#define BZ_TRAVERSAL_H
 
 // Fast traversal orders require the ISO/ANSI C++ standard library
 // (particularly set).
 #ifdef BZ_HAVE_STD
-
-#ifndef BZ_TRAVERSAL_H
-#define BZ_TRAVERSAL_H
 
 #include <blitz/vector2.h>
 
@@ -159,7 +159,4 @@ BZ_NAMESPACE_END
 
 #include <blitz/traversal.cc>
 
-#endif // BZ_TRAVERSAL_H
-
 #endif // BZ_HAVE_STD
-

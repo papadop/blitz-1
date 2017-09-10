@@ -29,7 +29,7 @@
  *
  ***************************************************************************/
 
-#ifndef BZ_TINYMAT_H
+#pragma once
 #define BZ_TINYMAT_H
 
 #include <blitz/blitz.h>
@@ -353,6 +353,3 @@ namespace boost {
 #endif
 
 #include <blitz/tm2fastiter.h>  // Iterators
-
-#endif // BZ_TINYMAT_H
-

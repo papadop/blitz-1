@@ -40,8 +40,7 @@
  *  - apply<T func(T)>
  */
 
-#ifndef BZ_ARRAY_H
-#define BZ_ARRAY_H
+#pragma once
 
 #include <blitz/blitz.h>
 #include <blitz/memblock.h>
@@ -2605,6 +2604,3 @@ BZ_NAMESPACE_END
  */
 #include <blitz/array.cc>
 #include <blitz/tinyvec2.cc>
-
-
-#endif // BZ_ARRAY_H

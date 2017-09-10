@@ -324,5 +324,3 @@ private:
 
     operand * operands_[BZ_VECEXPR_NUM_OPERANDS];
 };
-
-

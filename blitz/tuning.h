@@ -29,8 +29,7 @@
  *
  ***************************************************************************/
 
-#ifndef BZ_TUNING_H
-#define BZ_TUNING_H
+#pragma once
 
 // These estimates should be conservative (i.e. underestimate the
 // cache sizes). \todo these can be const ints instead of macros.
@@ -167,5 +166,3 @@
     #define BZ_NO_PROPAGATE(X)  __kai_apply("(%a)",&X)
 #endif
 #endif
-
-#endif // BZ_TUNING_H

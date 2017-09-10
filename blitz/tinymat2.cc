@@ -28,8 +28,7 @@
  *
  ***************************************************************************/
 
-#ifndef BZ_TINYMAT2_CC
-#define BZ_TINYMAT2_CC
+#pragma once
 
 #include <blitz/tmevaluate.h>
 #include <blitz/tinymat2io.cc>
@@ -129,5 +128,3 @@ TinyMatrix<P_numtype, N_rows, N_columns>::operator()(IndexPlaceholder<N0>, Index
 
 
 BZ_NAMESPACE_END
-
-#endif // BZ_TINYVEC_CC

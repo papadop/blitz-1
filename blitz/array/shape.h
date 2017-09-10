@@ -28,8 +28,7 @@
  *    https://sourceforge.net/projects/blitz/
  *
  ****************************************************************************/
-#ifndef BZ_ARRAYSHAPE_H
-#define BZ_ARRAYSHAPE_H
+#pragma once
 
 #ifndef BZ_ARRAY_H
  #error <blitz/array/shape.h> must be included via <blitz/array.h>
@@ -89,6 +88,3 @@ inline TinyVector<int,11> shape(int n1, int n2, int n3, int n4,
 { return TinyVector<int,11>(n1,n2,n3,n4,n5,n6,n7,n8,n9,n10,n11); }
 
 BZ_NAMESPACE_END
-
-#endif // BZ_ARRAYSHAPE_H
-

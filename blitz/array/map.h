@@ -44,8 +44,7 @@
  * the destination array coordinate system, e.g. B(j,k) -> C(i,j,k)
  */
 
-#ifndef BZ_ARRAYMAP_H
-#define BZ_ARRAYMAP_H
+#pragma once
 
 #include <blitz/blitz.h>
 #include <blitz/prettyprint.h>
@@ -769,6 +768,3 @@ private:
 };
 
 BZ_NAMESPACE_END
-
-#endif // BZ_ARRAYMAP_H
-

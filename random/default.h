@@ -29,8 +29,7 @@
  *
  ***************************************************************************/
 
-#ifndef BZ_RANDOM_DEFAULT_H
-#define BZ_RANDOM_DEFAULT_H
+#pragma once
 
 #include <random/mt.h>
 
@@ -120,6 +119,3 @@ protected:
 typedef MersenneTwister defaultIRNG;
 
 BZ_NAMESPACE_END
-
-#endif // BZ_RANDOM_DEFAULT_H
-

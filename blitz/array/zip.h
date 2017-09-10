@@ -28,8 +28,7 @@
  *    https://sourceforge.net/projects/blitz/
  *
  ****************************************************************************/
-#ifndef BZ_ARRAYZIP_H
-#define BZ_ARRAYZIP_H
+#pragma once
 
 #ifndef BZ_ARRAY_H
  #error <blitz/array/zip.h> must be included via <blitz/array.h>
@@ -75,6 +74,3 @@ zip(const T1& a, const T2& b, T_component)
 }
 
 BZ_NAMESPACE_END
-
-#endif // BZ_ARRAYZIP_H
-

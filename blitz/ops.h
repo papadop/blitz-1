@@ -29,8 +29,7 @@
  *
  *************************************************************************/
 
-#ifndef BZ_OPS_H
-#define BZ_OPS_H
+#pragma once
 
 #include <blitz/blitz.h>
 #include <blitz/promote.h>
@@ -212,7 +211,3 @@ public:
 
 
 BZ_NAMESPACE_END
-
-#endif // BZ_OPS_H
-
-

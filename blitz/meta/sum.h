@@ -29,8 +29,7 @@
  *
  ***************************************************************************/
 
-#ifndef BZ_META_SUM_H
-#define BZ_META_SUM_H
+#pragma once
 
 #ifndef BZ_METAPROG_H
  #include <blitz/meta/metaprog.h>
@@ -85,5 +84,3 @@ public:
 };
 
 BZ_NAMESPACE_END
-
-#endif // BZ_META_SUM_H

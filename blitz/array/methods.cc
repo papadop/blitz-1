@@ -27,8 +27,7 @@
  *    https://sourceforge.net/projects/blitz/
  *
  ****************************************************************************/
-#ifndef BZ_ARRAYMETHODS_CC
-#define BZ_ARRAYMETHODS_CC
+#pragma once
 
 #ifndef BZ_ARRAY_H
  #error <blitz/array/methods.cc> must be included via <blitz/array.h>
@@ -491,6 +490,3 @@ Array<P_numtype, N_rank>::reindex(const TinyVector<int, N_rank>& newBase)
 }
 
 BZ_NAMESPACE_END
-
-#endif // BZ_ARRAY_CC
-

@@ -27,8 +27,7 @@
  *    https://sourceforge.net/projects/blitz/
  *
  ***************************************************************************/
-#ifndef BZ_MEMBLOCK_CC
-#define BZ_MEMBLOCK_CC
+#pragma once
 
 #include <blitz/numtrait.h>
 
@@ -145,5 +144,3 @@ inline void MemoryBlock<P_type>::allocate(sizeType length)
 
 
 BZ_NAMESPACE_END
-
-#endif // BZ_MEMBLOCK_CC

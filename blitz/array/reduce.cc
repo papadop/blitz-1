@@ -27,6 +27,8 @@
  *    https://sourceforge.net/projects/blitz/
  *
  ****************************************************************************/
+#pragma once
+
 #ifndef BZ_ARRAYREDUCE_H
  #error <blitz/array/reduce.cc> must be included via <blitz/array/reduce.h>
 #endif
@@ -151,4 +153,3 @@ _bz_reduceWithIndexVectorTraversal(T_expr expr, T_reduction reduction)
 }
 
 BZ_NAMESPACE_END
-

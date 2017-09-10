@@ -27,8 +27,7 @@
  *    https://sourceforge.net/projects/blitz/
  *
  ****************************************************************************/
-#ifndef BZ_BENCH_CC
-#define BZ_BENCH_CC
+#pragma once
 
 #ifndef BZ_BENCH_H
  #error <blitz/bench.cc> must be included via <blitz/bench.h>
@@ -255,5 +254,3 @@ void Benchmark<P_parameter>::savePylabGraph(const char* filename) const
 }
 
 BZ_NAMESPACE_END
-
-#endif // BZ_BENCH_CC

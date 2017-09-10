@@ -28,8 +28,7 @@
  *    https://sourceforge.net/projects/blitz/
  *
  ***************************************************************************/
-#ifndef BZ_ASEXPR_CC
-#define BZ_ASEXPR_cc
+#pragma once
 
 #include <blitz/array/asexpr.h>
 #include <blitz/array-impl.h>
@@ -87,5 +86,3 @@ asExpr<Range>::getExpr(T_expr x)
 { return T_expr(x); }
 
 BZ_NAMESPACE_END
-
-#endif

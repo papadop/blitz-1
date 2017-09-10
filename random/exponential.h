@@ -19,12 +19,9 @@
  * Exponential and Normal Distributions. Comm. ACM, 15,10 (Oct. 1972), p. 873.
  */
 
-#ifndef BZ_RANDOM_EXPONENTIAL
-#define BZ_RANDOM_EXPONENTIAL
+#pragma once
 
-#ifndef BZ_RANDOM_UNIFORM
- #include <random/uniform.h>
-#endif
+#include <random/uniform.h>
 
 BZ_NAMESPACE(ranlib)
 
@@ -74,5 +71,3 @@ private:
 };
 
 BZ_NAMESPACE_END
-
-#endif // BZ_RANDOM_EXPONENTIAL

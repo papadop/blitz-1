@@ -30,8 +30,7 @@
  *
  ***************************************************************************/
 
-#ifndef BZ_REDUCE_H
-#define BZ_REDUCE_H
+#pragma once
 
 #include <blitz/minmax.h>
 
@@ -517,5 +516,3 @@ protected:
 }; 
 
 BZ_NAMESPACE_END
-
-#endif // BZ_REDUCE_H

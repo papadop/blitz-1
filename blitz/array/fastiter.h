@@ -28,8 +28,7 @@
  *    https://sourceforge.net/projects/blitz/
  *
  ****************************************************************************/
-#ifndef BZ_ARRAY_FASTITER_H
-#define BZ_ARRAY_FASTITER_H
+#pragma once
 
 #include <blitz/blitz.h>
 #include <blitz/array/slice.h>
@@ -485,5 +484,3 @@ public:
 
 
 BZ_NAMESPACE_END
-
-#endif // BZ_ARRAY_FASTITER_H

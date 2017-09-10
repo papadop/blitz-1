@@ -28,8 +28,7 @@
  *    https://sourceforge.net/projects/blitz/
  *
  ****************************************************************************/
-#ifndef BZ_ARRAY_CONVOLVE_H
-#define BZ_ARRAY_CONVOLVE_H
+#pragma once
 
 #ifndef BZ_ARRAY_H
  #error <blitz/array/convolve.h> must be included after <blitz/array.h>
@@ -43,5 +42,3 @@ Array<T,1> convolve(const Array<T,1>& B, const Array<T,1>& C);
 BZ_NAMESPACE_END
 
 #include <blitz/array/convolve.cc>
-
-#endif // BZ_ARRAY_CONVOLVE_H

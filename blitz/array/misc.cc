@@ -27,8 +27,7 @@
  *    https://sourceforge.net/projects/blitz/
  *
  ****************************************************************************/
-#ifndef BZ_ARRAYMISC_CC
-#define BZ_ARRAYMISC_CC
+#pragma once
 
 #ifndef BZ_ARRAY_H
  #error <blitz/array/misc.cc> must be included via <blitz/array.h>
@@ -86,6 +85,3 @@ cast(BZ_ETPARM(_bz_ArrayExpr<T_expr>) expr, T_cast)
 }                                                                      
                                                                        
 BZ_NAMESPACE_END
-
-#endif // BZ_ARRAYMISC_CC
-

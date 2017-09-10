@@ -1,5 +1,4 @@
-#ifndef BZ_EXPR_CC
-#define BZ_EXPR_CC
+#pragma once
 
 #include <blitz/array/expr.h>
 
@@ -14,5 +13,3 @@ _bz_ArrayExprConstant<P_numtype>::domain() const
 }
 
 BZ_NAMESPACE_END
-
-#endif

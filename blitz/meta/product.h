@@ -29,8 +29,7 @@
  *
  ***************************************************************************/
 
-#ifndef BZ_META_PRODUCT_H
-#define BZ_META_PRODUCT_H
+#pragma once
 
 #ifndef BZ_PROMOTE_H
  #include <blitz/promote.h>
@@ -87,5 +86,3 @@ public:
 };
 
 BZ_NAMESPACE_END
-
-#endif // BZ_META_PRODUCT_H

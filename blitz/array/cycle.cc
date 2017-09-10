@@ -27,8 +27,7 @@
  *    https://sourceforge.net/projects/blitz/
  *
  ****************************************************************************/
-#ifndef BZ_ARRAYCYCLE_CC
-#define BZ_ARRAYCYCLE_CC
+#pragma once
 
 #ifndef BZ_ARRAY_H
  #error <blitz/array/cycle.cc> must be included via <blitz/array.h>
@@ -79,5 +78,3 @@ void cycleArrays(Array<T_numtype, N_rank>& a, Array<T_numtype, N_rank>& b,
 }
 
 BZ_NAMESPACE_END
-
-#endif // BZ_ARRAYCYCLE_CC

@@ -30,8 +30,7 @@
  ***************************************************************************/
 
 /* Select the compiler-specific config.h header file */
-#ifndef BZCONFIG_H
-#define BZCONFIG_H
+#pragma once
 
 #if defined(__APPLE__)
 #if defined(__GNUC__)
@@ -95,5 +94,3 @@
 #else
 #error Unknown compiler
 #endif
-
-#endif /* BZCONFIG_H */

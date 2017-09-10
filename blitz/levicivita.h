@@ -1,5 +1,4 @@
-#ifndef BZ_LEVICIVITA_H
-#define BZ_LEVICIVITA_H
+#pragma once
 
 #include <blitz/prettyprint.h>
 #include <blitz/shapecheck.h>
@@ -159,5 +158,3 @@ public:
 };
 
 BZ_NAMESPACE_END
-
-#endif

@@ -28,8 +28,7 @@
  *    https://sourceforge.net/projects/blitz/
  *
  ****************************************************************************/
-#ifndef BZ_CGSOLVE_H
-#define BZ_CGSOLVE_H
+#pragma once
 
 BZ_NAMESPACE(blitz)
 
@@ -152,5 +151,3 @@ cout << "Interior: " << interior.lbound() << ", " << interior.ubound()
 }
 
 BZ_NAMESPACE_END
-
-#endif // BZ_CGSOLVE_H

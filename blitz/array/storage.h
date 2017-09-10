@@ -28,8 +28,7 @@
  *    https://sourceforge.net/projects/blitz/
  *
  ****************************************************************************/
-#ifndef BZ_ARRAY_STORAGE_H
-#define BZ_ARRAY_STORAGE_H
+#pragma once
 
 #ifdef BZ_HAVE_BOOST_SERIALIZATION
 #include <boost/serialization/serialization.hpp>
@@ -474,6 +473,3 @@ namespace boost { namespace mpi {
   struct is_mpi_datatype<blitz::GeneralArrayStorage<N> > : boost::mpl::true_ { };
 } }
 #endif
-
-#endif // BZ_ARRAY_STORAGE_H
-

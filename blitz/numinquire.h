@@ -42,8 +42,7 @@
  * for the appropriate case.  If not, the results are not useful.
  */
 
-#ifndef BZ_NUMINQUIRE_H
-#define BZ_NUMINQUIRE_H
+#pragma once
 
 #ifndef BZ_BLITZ_H
   #include <blitz/blitz.h>
@@ -307,6 +306,3 @@ inline BZ_STD_SCOPE(float_round_style) round_style(T)
 }
 
 BZ_NAMESPACE_END
-
-#endif // BZ_NUMINQUIRE_H
-

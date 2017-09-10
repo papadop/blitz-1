@@ -28,8 +28,7 @@
  *    https://sourceforge.net/projects/blitz/
  *
  ****************************************************************************/
-#ifndef BZ_NEWET_MACROS_H
-#define BZ_NEWET_MACROS_H
+#pragma once
 
 #include <blitz/array/asexpr.h>
 
@@ -367,13 +366,3 @@ BZ_DECLARE_ARRAY_ET_TERNARY(name, name ## _impl)
     
 
 BZ_NAMESPACE_END
-
-#endif
-
-
-
-
-
-
-
-

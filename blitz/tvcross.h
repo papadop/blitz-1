@@ -29,8 +29,7 @@
  *
  ***************************************************************************/
 
-#ifndef BZ_TVCROSS_H
-#define BZ_TVCROSS_H
+#pragma once
 
 #ifndef BZ_TINYVEC_H
  #error <blitz/tvcross.h> must be included via <blitz/tinyvec.h>
@@ -55,5 +54,3 @@ TinyVector<T_numtype,3> cross(const TinyVector<T_numtype,3>& x,
 
 
 BZ_NAMESPACE_END
-
-#endif // BZ_TVCROSS_H

@@ -28,8 +28,7 @@
  *
  ***************************************************************************/
 
-#ifndef BZ_TVEVALUATE_H
-#define BZ_TVEVALUATE_H
+#pragma once
 
 #include <blitz/tinyvec2.h>
 #include <blitz/update.h>
@@ -181,5 +180,3 @@ TinyVector<P_numtype,N_length>::_tv_evaluate(const T_expr& expr, T_update)
 
 
 BZ_NAMESPACE_END
-
-#endif // BZ_TVEVALUATE_H

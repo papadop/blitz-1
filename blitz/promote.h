@@ -29,8 +29,7 @@
  *
  ***************************************************************************/
 
-#ifndef BZ_PROMOTE_H
-#define BZ_PROMOTE_H
+#pragma once
 
 #include <blitz/blitz.h>
 
@@ -168,5 +167,3 @@ struct promote_trait {
 #endif // !BZ_HAVE_PARTIAL_SPECIALIZATION
 
 BZ_NAMESPACE_END
-
-#endif // BZ_PROMOTE_H

@@ -29,8 +29,7 @@
  *    https://sourceforge.net/projects/blitz/
  *
  ****************************************************************************/
-#ifndef BZ_GEOMETRY_H
-#define BZ_GEOMETRY_H
+#pragma once
 
 #ifndef BZ_ARRAY_H
  #error <blitz/array/geometry.h> must be included after <blitz/array.h>
@@ -108,5 +107,3 @@ public:
 };
 
 BZ_NAMESPACE_END
-
-#endif // BZ_GEOMETRY_H

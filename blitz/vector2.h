@@ -39,8 +39,7 @@
  *       no suitable copy constructor for _bz_VecExpr(...).
  */
 
-#ifndef BZ_VECTOR_H
-#define BZ_VECTOR_H
+#pragma once
 
 #include <blitz/blitz.h>
 #include <blitz/array.h>
@@ -105,5 +104,3 @@ class Vector : public Array<P_numtype,1>
 
 
 BZ_NAMESPACE_END
-
-#endif // BZ_VECTOR_H

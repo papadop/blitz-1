@@ -1,5 +1,4 @@
-#ifndef BZ_ET_FORWARD_H
-#define BZ_ET_FORWARD_H
+#pragma once
 
 #include <blitz/blitz.h>
 
@@ -66,6 +65,3 @@ class LeviCivita;
 class Range;
 
 BZ_NAMESPACE_END
-
-
-#endif

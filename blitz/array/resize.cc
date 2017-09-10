@@ -27,8 +27,7 @@
  *    https://sourceforge.net/projects/blitz/
  *
  ****************************************************************************/
-#ifndef BZ_ARRAYRESIZE_CC
-#define BZ_ARRAYRESIZE_CC
+#pragma once
 
 #ifndef BZ_ARRAY_H
  #error <blitz/array/resize.cc> must be included via <blitz/array.h>
@@ -948,5 +947,3 @@ void Array<T_numtype, N_rank>::resizeAndPreserve(const TinyVector<int,N_rank>& e
 }
 
 BZ_NAMESPACE_END
-
-#endif // BZ_ARRAYRESIZE_CC

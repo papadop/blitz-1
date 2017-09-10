@@ -1,6 +1,4 @@
-#ifndef BZ_RANGE_CC
-#define BZ_RANGE_CC
-
+#pragma once
 
 #include <blitz/range.h>
 #include <blitz/array/ops.h>
@@ -29,5 +27,3 @@ inline bool Range::assertInRange(const T_index& BZ_DEBUG_PARAM(index)) const
 }
 
 BZ_NAMESPACE_END
-
-#endif

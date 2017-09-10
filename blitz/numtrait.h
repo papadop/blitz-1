@@ -29,8 +29,7 @@
  *
  ***************************************************************************/
 
-#ifndef BZ_NUMTRAIT_H
-#define BZ_NUMTRAIT_H
+#pragma once
 
 #ifndef BZ_BLITZ_H
  #include <blitz/blitz.h>
@@ -95,5 +94,3 @@ BZDECLNUMTRAIT(double, double, double, double, double);
 #endif // BZ_USE_NUMTRAIT
 
 BZ_NAMESPACE_END
-
-#endif // BZ_NUMTRAIT_H

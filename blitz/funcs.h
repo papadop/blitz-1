@@ -29,8 +29,7 @@
  *
  *************************************************************************/
 
-#ifndef BZ_FUNCS_H
-#define BZ_FUNCS_H
+#pragma once
 
 #include <blitz/blitz.h>
 #include <blitz/promote.h>
@@ -653,5 +652,3 @@ struct Max {
 };
 
 BZ_NAMESPACE_END
-
-#endif // BZ_FUNCS_H

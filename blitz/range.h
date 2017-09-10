@@ -29,8 +29,7 @@
  *
  ***************************************************************************/
 
-#ifndef BZ_RANGE_H
-#define BZ_RANGE_H
+#pragma once
 
 
 #include <blitz/blitz.h>
@@ -322,5 +321,3 @@ private:
 };
 
 BZ_NAMESPACE_END
-
-#endif // BZ_RANGE_H

@@ -29,8 +29,7 @@
  *
  ***************************************************************************/
 
-#ifndef BZ_BLITZ_H
-#define BZ_BLITZ_H
+#pragma once
 
 /*
  * These symbols allow use of the IEEE and System V math libraries
@@ -194,5 +193,3 @@ BZ_NAMESPACE_END
 #endif
 
 #include <blitz/bzdebug.h>           // Debugging macros
-
-#endif // BZ_BLITZ_H

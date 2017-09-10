@@ -32,8 +32,7 @@
  #error <blitz/array/iter.h> must be included via <blitz/array.h>
 #endif
 
-#ifndef BZ_ARRAY_ITER_H
-#define BZ_ARRAY_ITER_H
+#pragma once
 
 #ifdef BZ_HAVE_STL
 #include <iterator>
@@ -487,6 +486,3 @@ struct iterator_traits< BZ_BLITZ_SCOPE(ArrayIterator)<T,N,OPTION> > {
 BZ_NAMESPACE_END
 
 #endif // BZ_HAVE_STL
-
-#endif // BZ_ARRAY_ITER_H
-

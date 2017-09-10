@@ -27,8 +27,7 @@
  *    https://sourceforge.net/projects/blitz/
  *
  ****************************************************************************/
-#ifndef BZ_ARRAYINTERLACE_CC
-#define BZ_ARRAYINTERLACE_CC
+#pragma once
 
 #ifndef BZ_ARRAY_H
  #error <blitz/array/interlace.cc> must be included via <blitz/array.h>
@@ -545,6 +544,3 @@ Array<T_numtype,N_rank>::Array(const TinyVector<Range,N_rank-1>& shape,
 #endif
 
 BZ_NAMESPACE_END
-
-#endif // BZ_ARRAYINTER_CC
-

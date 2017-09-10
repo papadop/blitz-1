@@ -29,8 +29,7 @@
  *
  ***************************************************************************/
 
-#ifndef BZ_ETBASE_H
-#define BZ_ETBASE_H
+#pragma once
 
 BZ_NAMESPACE(blitz)
 
@@ -55,6 +54,3 @@ public:
 };
 
 BZ_NAMESPACE_END
-
-#endif // BZ_ETBASE_H
-

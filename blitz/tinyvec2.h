@@ -29,7 +29,7 @@
  *
  ***************************************************************************/
 
-#ifndef BZ_TINYVEC_H
+#pragma once
 #define BZ_TINYVEC_H
 
 #include <blitz/blitz.h>
@@ -455,7 +455,3 @@ namespace boost {
       : public is_mpi_datatype<T> { };
   } };
 #endif
-
-
-#endif // BZ_TINYVEC_H
-

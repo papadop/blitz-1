@@ -28,8 +28,7 @@
  *
  ***************************************************************************/
 
-#ifndef BZ_TINYVEC_CC
-#define BZ_TINYVEC_CC
+#pragma once
 
 #include <blitz/tinyvec.h>
 #include <blitz/vector.h>
@@ -631,5 +630,3 @@ TinyVector<P_numtype, N_length>::operator>>=(const VectorPick<P_numtype2>& x)
 }
 
 BZ_NAMESPACE_END
-
-#endif // BZ_TINYVEC_CC

@@ -224,4 +224,3 @@ private:
     int done_;
     int numSpecializations_;
 };
-

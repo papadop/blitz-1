@@ -29,7 +29,7 @@
  *
  ***************************************************************************/
 
-#ifndef BZ_BENCH_H
+#pragma once
 #define BZ_BENCH_H
 
 #include <blitz/matrix.h>
@@ -139,5 +139,3 @@ public:
 BZ_NAMESPACE_END
 
 #include <blitz/bench.cc>  
-
-#endif // BZ_BENCH_H

@@ -1,6 +1,4 @@
-
-#ifndef BZ_ARRAY_CC
-#define BZ_ARRAY_CC
+#pragma once
 
 // not-quite-declarations-of-array files
 
@@ -25,4 +23,3 @@
 #include <blitz/array/indirect.h>   // Indirection
 #include <blitz/array/stencils.h>   // Stencil objects
 #include <blitz/tinymat2.cc>        // TinyMatrix implementations
-#endif

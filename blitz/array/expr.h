@@ -28,8 +28,7 @@
  *    https://sourceforge.net/projects/blitz/
  *
  ****************************************************************************/
-#ifndef BZ_EXPR_H
-#define BZ_EXPR_H
+#pragma once
 
 #include <blitz/prettyprint.h>
 #include <blitz/shapecheck.h>
@@ -2143,6 +2142,3 @@ protected:
 BZ_NAMESPACE_END
 
 #include <blitz/array/asexpr.h>
-
-#endif // BZ_ARRAYEXPR_H
-

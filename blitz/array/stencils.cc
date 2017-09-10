@@ -27,8 +27,7 @@
  *    https://sourceforge.net/projects/blitz/
  *
  ****************************************************************************/
-#ifndef BZ_ARRAYSTENCILS_CC
-#define BZ_ARRAYSTENCILS_CC
+#pragma once
 
 #ifndef BZ_ARRAYSTENCILS_H
  #error <blitz/array/stencil.cc> must be included via <blitz/array/stencils.h>
@@ -610,5 +609,3 @@ inline void applyStencil(const T_stencil& stencil, Array<T_numtype1,N_rank>& A,
 }
 
 BZ_NAMESPACE_END
-
-#endif // BZ_ARRAYSTENCIL_CC

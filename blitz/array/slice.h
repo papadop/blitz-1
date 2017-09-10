@@ -28,8 +28,7 @@
  *    https://sourceforge.net/projects/blitz/
  *
  ****************************************************************************/
-#ifndef BZ_ARRAYSLICE_H
-#define BZ_ARRAYSLICE_H
+#pragma once
 
 // #ifndef BZ_ARRAY_H
 //  #error <blitz/array/slice.h> must be included via <blitz/array.h>
@@ -120,5 +119,3 @@ public:
 
 
 BZ_NAMESPACE_END
-
-#endif // BZ_ARRAYSLICE_H

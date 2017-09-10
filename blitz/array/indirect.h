@@ -29,8 +29,7 @@
  *
  ****************************************************************************/
 
-#ifndef BZ_ARRAY_INDIRECT_H
-#define BZ_ARRAY_INDIRECT_H
+#pragma once
 
 #include <blitz/array/asexpr.h>
 #include <blitz/array/cartesian.h>
@@ -609,5 +608,3 @@ indexSet(const T1& c1, const T2& c2, const T3& c3, const T4& c4, const T5& c5,
 }
 
 BZ_NAMESPACE_END
-
-#endif // BZ_ARRAY_INDIRECT_H

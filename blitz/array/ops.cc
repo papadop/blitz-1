@@ -27,8 +27,7 @@
  *    https://sourceforge.net/projects/blitz/
  *
  ****************************************************************************/
-#ifndef BZ_ARRAYOPS_CC
-#define BZ_ARRAYOPS_CC
+#pragma once
 
 #ifndef BZ_ARRAY_H
  #error <blitz/array/ops.cc> must be included via <blitz/array.h>
@@ -412,5 +411,3 @@ Array<P_numtype, N_rank>::operator<<=(BZ_ETPARM(_bz_ArrayExpr<T_expr>) expr)
 #endif // BZ_NEW_EXPRESSION_TEMPLATES
 
 BZ_NAMESPACE_END
-
-#endif // BZ_ARRAYOPS_CC

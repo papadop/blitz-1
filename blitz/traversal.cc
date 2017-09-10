@@ -28,8 +28,7 @@
  *
  ***************************************************************************/
 
-#ifndef BZ_TRAVERSAL_CC
-#define BZ_TRAVERSAL_CC
+#pragma once
 
 #ifndef BZ_TRAVERSAL_H
  #error <blitz/traversal.cc> must be included via <blitz/traversal.h>
@@ -130,5 +129,3 @@ void generateFastTraversalOrder(const TinyVector<int,N_dimensions>& size)
 }
 
 BZ_NAMESPACE_END
-
-#endif // BZ_TRAVERSAL_CC

@@ -28,8 +28,7 @@
  *    https://sourceforge.net/projects/blitz/
  *
  ****************************************************************************/
-#ifndef BZ_ARRAYSTENCILOPS_H
-#define BZ_ARRAYSTENCILOPS_H
+#pragma once
 
 // NEEDS_WORK: need to factor many of the stencils in terms of the
 // integer constants, e.g. 16*(A(-1,0)+A(0,-1)+A(0,1)+A(1,0))
@@ -1200,6 +1199,3 @@ inline TinyVector<_bz_typename T::T_numtype,3> grad3D4_stencilop(const T& A,
 }
 
 BZ_NAMESPACE_END
-
-#endif // BZ_ARRAYSTENCILOPS_H
-

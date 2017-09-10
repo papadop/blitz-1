@@ -28,8 +28,7 @@
  *    https://sourceforge.net/projects/blitz/
  *
  ****************************************************************************/
-#ifndef BZ_ARRAYMULTI_H
-#define BZ_ARRAYMULTI_H
+#pragma once
 
 #ifndef BZ_ARRAY_H
  #error <blitz/array/multi.h> must be included via <blitz/array.h>
@@ -91,5 +90,3 @@ struct multicomponent_traits<complex<T> > {
   BZ_NAMESPACE_END
 
 BZ_NAMESPACE_END
-
-#endif // BZ_ARRAYMULTI_H

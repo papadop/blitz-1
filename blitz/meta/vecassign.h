@@ -29,8 +29,7 @@
  *
  ***************************************************************************/
 
-#ifndef BZ_META_VECASSIGN_H
-#define BZ_META_VECASSIGN_H
+#pragma once
 
 #include <blitz/blitz.h>
 
@@ -90,8 +89,4 @@ public:
     }
 };
 
-
-
 BZ_NAMESPACE_END
-
-#endif // BZ_META_ASSIGN_H

@@ -28,8 +28,7 @@
  *    https://sourceforge.net/projects/blitz/
  *
  ****************************************************************************/
-#ifndef BZ_ARRAY_TM2FASTITER_H
-#define BZ_ARRAY_TM2FASTITER_H
+#pragma once
 
 #ifdef BZ_HAVE_STD
  #include <sstream>
@@ -477,5 +476,3 @@ public:
 
 
 BZ_NAMESPACE_END
-
-#endif // BZ_ARRAY_FASTITER_H

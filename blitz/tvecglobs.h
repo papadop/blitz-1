@@ -29,8 +29,7 @@
  *
  ***************************************************************************/
 
-#ifndef BZ_TVECGLOBS_H
-#define BZ_TVECGLOBS_H
+#pragma once
 
 #include <blitz/meta/metaprog.h>
 #include <blitz/numtrait.h>
@@ -95,6 +94,3 @@ sum(const TinyVector<T_numtype, N_length>& a)
 };
 
 BZ_NAMESPACE_END
-
-#endif // BZ_TVECGLOBS_H
-

@@ -1,5 +1,4 @@
-#ifndef BZ_BOUNDS_H
-#define BZ_BOUNDS_H
+#pragma once
 
 #include <blitz/blitz.h>
 
@@ -97,5 +96,3 @@ struct bounds {
 };
 
 BZ_NAMESPACE_END
-
-#endif

@@ -27,8 +27,7 @@
  *    https://sourceforge.net/projects/blitz/
  *
  ***************************************************************************/
-#ifndef BZ_TINYMAT2IO_CC
-#define BZ_TINYMAT2IO_CC
+#pragma once
 
 #include <blitz/tinymat2.h>
 
@@ -98,6 +97,3 @@ istream& operator>>(istream& is,
 }
 
 BZ_NAMESPACE_END
-
-#endif // BZ_TINYMATIO_CC
-

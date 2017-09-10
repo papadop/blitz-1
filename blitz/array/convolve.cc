@@ -28,8 +28,7 @@
  *
  ****************************************************************************/
 
-#ifndef BZ_ARRAY_CONVOLVE_CC
-#define BZ_ARRAY_CONVOLVE_CC
+#pragma once
 
 BZ_NAMESPACE(blitz)
 
@@ -66,6 +65,3 @@ Array<T,1> convolve(const Array<T,1>& B, const Array<T,1>& C)
 }
 
 BZ_NAMESPACE_END
-
-#endif // BZ_ARRAY_CONVOLVE_CC
-

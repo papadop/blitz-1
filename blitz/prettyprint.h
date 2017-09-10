@@ -30,8 +30,7 @@
  *
  ***************************************************************************/
 
-#ifndef BZ_PRETTYPRINT_H
-#define BZ_PRETTYPRINT_H
+#pragma once
 
 #include <blitz/blitz.h>
 
@@ -69,5 +68,3 @@ private:
 };
 
 BZ_NAMESPACE_END
-
-#endif // BZ_PRETTYPRINT_H

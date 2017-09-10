@@ -28,8 +28,7 @@
  *    https://sourceforge.net/projects/blitz/
  *
  ****************************************************************************/
-#ifndef BZ_ARRAY_FUNCS_H
-#define BZ_ARRAY_FUNCS_H
+#pragma once
 
 #include <blitz/funcs.h>
 #include <blitz/array/newet-macros.h>
@@ -309,5 +308,3 @@ scalar(const T& x) {
 #endif
     
 BZ_NAMESPACE_END
-
-#endif // BZ_ARRAY_FUNCS_H

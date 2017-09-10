@@ -28,8 +28,7 @@
  *    https://sourceforge.net/projects/blitz/
  *
  ****************************************************************************/
-#ifndef BZ_ARRAY_STENCIL_ET_MACROS_H
-#define BZ_ARRAY_STENCIL_ET_MACROS_H
+#pragma once
 
 BZ_NAMESPACE(blitz)
 
@@ -1269,5 +1268,3 @@ template<typename T1>							\
   { return name(d1.wrap(), dim1, dim2); }
 
 BZ_NAMESPACE_END
-
-#endif // BZ_ARRAY_STENCIL_ET_MACROS_H

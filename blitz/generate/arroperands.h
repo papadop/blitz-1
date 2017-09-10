@@ -291,5 +291,3 @@ private:
 
     operand * operands_[BZ_ARREXPR_NUM_OPERANDS];
 };
-
-

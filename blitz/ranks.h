@@ -1,5 +1,4 @@
-#ifndef BZ_RANKS_H
-#define BZ_RANKS_H
+#pragma once
 
 BZ_NAMESPACE(blitz)
 
@@ -40,5 +39,3 @@ const int tenthDim    = 9;
 const int eleventhDim = 10;
 
 BZ_NAMESPACE_END
-
-#endif

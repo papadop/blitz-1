@@ -21,12 +21,8 @@
  * Adapted to C++ by T. Veldhuizen.
  */
 
-#ifndef BZ_RANDOM_NORMAL
-#define BZ_RANDOM_NORMAL
-
-#ifndef BZ_RANDOM_UNIFORM
- #include <random/uniform.h>
-#endif
+#pragma once
+#include <random/uniform.h>
 
 BZ_NAMESPACE(ranlib)
 
@@ -116,5 +112,3 @@ private:
 };
 
 BZ_NAMESPACE_END
-
-#endif // BZ_RANDOM_NORMAL

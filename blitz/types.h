@@ -27,10 +27,7 @@
  *
  ***************************************************************************/
 
-
-#ifndef BZ_BLITZ_TYPES_H
-#define BZ_BLITZ_TYPES_H
-
+#pragma once
 
 namespace blitz {
 
@@ -142,5 +139,3 @@ typedef Array<quad,11>  Array11q;
 */
 
 };
-
-#endif // BZ_BLITZ_TYPES_H

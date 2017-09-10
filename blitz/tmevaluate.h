@@ -28,8 +28,7 @@
  *
  ***************************************************************************/
 
-#ifndef BZ_TMEVALUATE_H
-#define BZ_TMEVALUATE_H
+#pragma once
 
 #include <blitz/tinymat2.h>
 #include <blitz/update.h>
@@ -175,5 +174,3 @@ TinyMatrix<P_numtype,N_rows, N_columns>::_tm_evaluate(const T_expr& expr, T_upda
 
 
 BZ_NAMESPACE_END
-
-#endif // BZ_TVEVALUATE_H

@@ -28,7 +28,7 @@
  *    https://sourceforge.net/projects/blitz/
  *
  ****************************************************************************/
-#ifndef BZ_ARRAYSTENCILS_H
+#pragma once
 #define BZ_ARRAYSTENCILS_H
 
 #ifndef BZ_ARRAY_H
@@ -343,6 +343,3 @@ inline bool areShapesConformable(const T_shape1&, const dummyArray&) {
 BZ_NAMESPACE_END
 
 #include <blitz/array/stencils.cc>
-
-#endif // BZ_ARRAYSTENCILS_H
-

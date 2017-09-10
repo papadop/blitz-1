@@ -33,8 +33,7 @@
 // It will need to be rewritten for Windows, NT, Mac.
 // NEEDS_WORK
 
-#ifndef BZ_TIMER_H
-#define BZ_TIMER_H
+#pragma once
 
 #ifndef BZ_BLITZ_H
  #include <blitz/blitz.h>
@@ -186,6 +185,3 @@ private:
 
 
 BZ_NAMESPACE_END
-
-#endif // BZ_TIMER_H
-

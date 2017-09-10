@@ -29,8 +29,7 @@
  *
  ***************************************************************************/
 
-#ifndef BZ_SHAPECHECK_H
-#define BZ_SHAPECHECK_H
+#pragma once
 
 #include <iostream>
 #include <blitz/blitz.h>
@@ -79,5 +78,3 @@ inline bool areShapesConformable(const T_shape& a, const T_shape& b)
 }
 
 BZ_NAMESPACE_END
-
-#endif

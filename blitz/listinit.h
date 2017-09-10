@@ -39,8 +39,7 @@
  *     0, 0, 1;
  */
 
-#ifndef BZ_LISTINIT_H
-#define BZ_LISTINIT_H
+#pragma once
 
 BZ_NAMESPACE(blitz)
 
@@ -117,6 +116,3 @@ protected:
 };
 
 BZ_NAMESPACE_END
-
-#endif // BZ_LISTINIT_H
-

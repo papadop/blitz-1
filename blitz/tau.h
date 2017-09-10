@@ -30,8 +30,7 @@
  *
  ***************************************************************************/
 
-#ifndef BZ_TAU_H
-#define BZ_TAU_H
+#pragma once
 
 #ifdef BZ_TAU_PROFILING
  #define TAU_BLITZ  TAU_USER1
@@ -51,5 +50,3 @@
  #define TAU_PROFILE_SET_NODE(node)
  #define CT(obj)
 #endif // ! BZ_TAU_PROFILING
-
-#endif // BZ_TAU_H

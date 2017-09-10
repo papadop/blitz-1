@@ -27,8 +27,7 @@
  *    https://sourceforge.net/projects/blitz/
  *
  ****************************************************************************/
-#ifndef BZ_ARRAYSLICING_CC
-#define BZ_ARRAYSLICING_CC
+#pragma once
 
 #ifndef BZ_ARRAY_H
  #error <blitz/array/slicing.cc> must be included via <blitz/array.h>
@@ -359,5 +358,3 @@ void Array<P_numtype, N_rank>::slice(int rank, Range r)
 }
 
 BZ_NAMESPACE_END
-
-#endif // BZ_ARRAYSLICING_CC

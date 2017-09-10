@@ -19,24 +19,12 @@
  * is used.  Not clear how this could be accomplished.
  */
 
-#ifndef BZ_RANDOM_GAMMA
-#define BZ_RANDOM_GAMMA
+#pragma once
 
-#ifndef BZ_RANDOM_UNIFORM
- #include <random/uniform.h>
-#endif
-
-#ifndef BZ_RANDOM_NORMAL
- #include <random/normal.h>
-#endif
-
-#ifndef BZ_RANDOM_EXPONENTIAL
- #include <random/exponential.h>
-#endif
-
-#ifndef BZ_NUMINQUIRE_H
- #include <blitz/numinquire.h>
-#endif
+#include <random/uniform.h>
+#include <random/normal.h>
+#include <random/exponential.h>
+#include <blitz/numinquire.h>
 
 BZ_NAMESPACE(ranlib)
 
@@ -312,5 +300,3 @@ S140:
 }
 
 BZ_NAMESPACE_END
-
-#endif // BZ_RANDOM_GAMMA

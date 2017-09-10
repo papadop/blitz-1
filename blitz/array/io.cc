@@ -27,8 +27,7 @@
  *    https://sourceforge.net/projects/blitz/
  *
  ****************************************************************************/
-#ifndef BZ_ARRAYIO_CC
-#define BZ_ARRAYIO_CC
+#pragma once
 
 #ifndef BZ_ARRAY_H
  #error <blitz/array/io.cc> must be included via <blitz/array.h>
@@ -211,5 +210,3 @@ Array \n (expected ']' after end of Array data)");
 }
 
 BZ_NAMESPACE_END
-
-#endif // BZ_ARRAYIO_CC
