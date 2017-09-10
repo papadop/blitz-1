@@ -266,8 +266,8 @@ public:
         stride_ = stride;
     }
 
-    static Range all() 
-    { return Range(fromStart,toEnd,1); }
+    static Range all(const int stride=1) 
+    { return Range(fromStart,toEnd,stride); }
 
   /// \todo this talks about the stride of the RANGE, not the expression stride.
     bool isUnitStride() const
