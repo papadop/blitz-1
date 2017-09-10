@@ -73,6 +73,13 @@ BZ_NAMESPACE(blitz)
  * Forward declarations
  */
 
+#if defined(BZ_DEBUG)
+//  This is done so that one can mix code compiled with -DBZ_DEBUG
+//  with code not compiled with it. The class DataIterator generated
+//  with these two variants are not compatible.
+#define DataIterator DataIteratorDebug
+#endif
+
 template<typename T_numtype, int N_rank>
 class DataIterator;
 

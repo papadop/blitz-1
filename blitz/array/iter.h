@@ -40,7 +40,6 @@
 #endif
 
 #if defined(BZ_DEBUG)
-#define DataIterator DataIteratorDebug
 #define CheckIterator(X,Y)                                                         \
         CheckIteratorValidity(Y,X " invalid iterator (empty array)",               \
                                 X " invalid iterator (before beginning of array)", \
