@@ -13,7 +13,7 @@ option(SIMD_EXTENSION "Facilitate compiler vectorization optimizations for SIMD 
 if (SIMD_EXTENSION)
     set(USE_ALIGNMENT_PRAGMAS TRUE)
     CHECK_ALIGNMENT_DIRECTIVE(BZ_)
-    set(BZ_SIMD_WIDTH 1)
+    option(BZ_SIMD_WIDTH "Size of simd types in bytes." 1)
     if (BZ_SIMD_WIDTH GREATER 1)
         option(ARRAY_LENGTH_PADDING "Sets the default array padding policy to pad all lowest-rank lengths to nearest larger SIMD width. Caution: This means that arrays will in general be non-contiguous." OFF)
         if (ARRAY_LENGTH_PADDING)
@@ -71,18 +71,13 @@ macro(GENERATE_BLITZ_HEADER header prog var)
     add_custom_target(${header} ALL)
     add_dependencies(${header} ${prog})
     add_dependencies(generated-headers ${header})
-    get_target_property(PROG_EXE ${prog} LOCATION)
     add_custom_command(
-        COMMAND ${PROG_EXE}
+        COMMAND $<TARGET_FILE:${prog}>
         TARGET  ${header}
         WORKING_DIRECTORY ${PROJECT_BINARY_DIR}/blitz/generate
         OUTPUTS ${header}
     )
-    add_custom_command(
-        SOURCE    ${header}
-        TARGET    ${header}
-   )
-   set(${var} ${${var}} ${CMAKE_CURRENT_BINARY_DIR}/${header})
+    set(${var} ${${var}} ${CMAKE_CURRENT_BINARY_DIR}/${header})
 endmacro()
 
 add_subdirectory(generate) 

@@ -10,12 +10,11 @@ set(GENERATED_FILES)
 macro(STENCIL_DOC name define)
     add_executable(${name} dump-stencil.cpp)
     target_compile_definitions(${name} PRIVATE -Dstenciltoapply=${name}_stencilop -Dstencilargs=${define})
-    get_target_property(PROG_EXE ${name} LOCATION)
     target_link_libraries(${name} blitz)
     set(texi ${name}.texi)
     add_custom_target(${texi}
                       DEPENDS ${name}
-                      COMMAND ${PROG_EXE} > ${texi} 2>&1 
+                      COMMAND $<TARGET_FILE:${name}> > ${texi} 2>&1 
                       OUTPUTS ${texi})
     add_dependencies(stencils ${texi})
     #   For some reason the generated files are not cleaned up (contrarily to what is said for cmake).
