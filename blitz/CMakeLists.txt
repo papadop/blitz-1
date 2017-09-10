@@ -20,6 +20,8 @@ if (SIMD_EXTENSION)
             set(BZ_PAD_ARRAYS TRUE)
         endif()
     endif()
+else()
+    set(BZ_SIMD_WIDTH 1)
 endif()
 
 set(EXTRA_LIBS)
