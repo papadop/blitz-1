@@ -1044,106 +1044,106 @@ public:
     void                              reindexSelf(
                                         const TinyVector<int,N_rank>&);
 
-    void                              resize(int extent);
-    void                              resize(int extent1, int extent2);
-    void                              resize(int extent1, int extent2,
-                                        int extent3);
-    void                              resize(int extent1, int extent2,
-                                        int extent3, int extent4);
-    void                              resize(int extent1, int extent2,
-                                        int extent3, int extent4, int extent5);
-    void                              resize(int extent1, int extent2,
-                                        int extent3, int extent4, int extent5,
-                                        int extent6);
-    void                              resize(int extent1, int extent2,
-                                        int extent3, int extent4, int extent5,
-                                        int extent6, int extent7);
-    void                              resize(int extent1, int extent2,
-                                        int extent3, int extent4, int extent5,
-                                        int extent6, int extent7, int extent8);
-    void                              resize(int extent1, int extent2,
-                                        int extent3, int extent4, int extent5,
-                                        int extent6, int extent7, int extent8,
-                                        int extent9);
-    void                              resize(int extent1, int extent2,
-                                        int extent3, int extent4, int extent5,
-                                        int extent6, int extent7, int extent8,
-                                        int extent9, int extent10);
-    void                              resize(int extent1, int extent2,
-                                        int extent3, int extent4, int extent5,
-                                        int extent6, int extent7, int extent8,
-                                        int extent9, int extent10, 
-                                        int extent11);
+    void                              resize(const int extent);
+    void                              resize(const int extent1,const int extent2);
+    void                              resize(const int extent1,const int extent2,
+                                        const int extent3);
+    void                              resize(const int extent1,const int extent2,
+                                        const int extent3,const int extent4);
+    void                              resize(const int extent1,const int extent2,
+                                        const int extent3,const int extent4,const int extent5);
+    void                              resize(const int extent1,const int extent2,
+                                        const int extent3,const int extent4,const int extent5,
+                                        const int extent6);
+    void                              resize(const int extent1,const int extent2,
+                                        const int extent3,const int extent4,const int extent5,
+                                        const int extent6,const int extent7);
+    void                              resize(const int extent1,const int extent2,
+                                        const int extent3,const int extent4,const int extent5,
+                                        const int extent6,const int extent7,const int extent8);
+    void                              resize(const int extent1,const int extent2,
+                                        const int extent3,const int extent4,const int extent5,
+                                        const int extent6,const int extent7,const int extent8,
+                                        const int extent9);
+    void                              resize(const int extent1,const int extent2,
+                                        const int extent3,const int extent4,const int extent5,
+                                        const int extent6,const int extent7,const int extent8,
+                                        const int extent9,const int extent10);
+    void                              resize(const int extent1,const int extent2,
+                                        const int extent3,const int extent4,const int extent5,
+                                        const int extent6,const int extent7,const int extent8,
+                                        const int extent9,const int extent10, 
+                                        const int extent11);
 
 
-    void                              resize(Range r1);
-    void                              resize(Range r1, Range r2);
-    void                              resize(Range r1, Range r2, Range r3);
-    void                              resize(Range r1, Range r2, Range r3,
-                                        Range r4);
-    void                              resize(Range r1, Range r2, Range r3,
-                                        Range r4, Range r5);
-    void                              resize(Range r1, Range r2, Range r3,
-                                        Range r4, Range r5, Range r6);
-    void                              resize(Range r1, Range r2, Range r3,
-                                        Range r4, Range r5, Range r6,
-                                        Range r7);
-    void                              resize(Range r1, Range r2, Range r3,
-                                        Range r4, Range r5, Range r6,
-                                        Range r7, Range r8);
-    void                              resize(Range r1, Range r2, Range r3,
-                                        Range r4, Range r5, Range r6,
-                                        Range r7, Range r8, Range r9);
-    void                              resize(Range r1, Range r2, Range r3,
-                                        Range r4, Range r5, Range r6,
-                                        Range r7, Range r8, Range r9, 
-                                        Range r10);
-    void                              resize(Range r1, Range r2, Range r3,
-                                        Range r4, Range r5, Range r6,
-                                        Range r7, Range r8, Range r9, 
-                                        Range r10, Range r11);
+    void                              resize(const Range& r1);
+    void                              resize(const Range& r1, const Range& r2);
+    void                              resize(const Range& r1, const Range& r2, const Range& r3);
+    void                              resize(const Range& r1, const Range& r2, const Range& r3,
+                                        const Range& r4);
+    void                              resize(const Range& r1, const Range& r2, const Range& r3,
+                                        const Range& r4, const Range& r5);
+    void                              resize(const Range& r1, const Range& r2, const Range& r3,
+                                        const Range& r4, const Range& r5, const Range& r6);
+    void                              resize(const Range& r1, const Range& r2, const Range& r3,
+                                        const Range& r4, const Range& r5, const Range& r6,
+                                        const Range& r7);
+    void                              resize(const Range& r1, const Range& r2, const Range& r3,
+                                        const Range& r4, const Range& r5, const Range& r6,
+                                        const Range& r7, const Range& r8);
+    void                              resize(const Range& r1, const Range& r2, const Range& r3,
+                                        const Range& r4, const Range& r5, const Range& r6,
+                                        const Range& r7, const Range& r8, const Range& r9);
+    void                              resize(const Range& r1, const Range& r2, const Range& r3,
+                                        const Range& r4, const Range& r5, const Range& r6,
+                                        const Range& r7, const Range& r8, const Range& r9, 
+                                        const Range& r10);
+    void                              resize(const Range& r1, const Range& r2, const Range& r3,
+                                        const Range& r4, const Range& r5, const Range& r6,
+                                        const Range& r7, const Range& r8, const Range& r9, 
+                                        const Range& r10, const Range& r11);
 
     void                              resize(const TinyVector<int,N_rank>&);
  
 
     void                              resizeAndPreserve(const TinyVector<int,
                                                                    N_rank>&);
-    void                              resizeAndPreserve(int extent);
-    void                              resizeAndPreserve(int extent1, 
-                                        int extent2);
-    void                              resizeAndPreserve(int extent1, 
-                                        int extent2, int extent3);
-    void                              resizeAndPreserve(int extent1,
-                                        int extent2, int extent3, int extent4);
-    void                              resizeAndPreserve(int extent1,
-                                        int extent2, int extent3, int extent4,
-                                        int extent5);
-    void                              resizeAndPreserve(int extent1,
-                                        int extent2, int extent3, int extent4,
-                                        int extent5, int extent6);
-    void                              resizeAndPreserve(int extent1,
-                                        int extent2, int extent3, int extent4,
-                                        int extent5, int extent6, int extent7);
-    void                              resizeAndPreserve(int extent1,
-                                        int extent2, int extent3, int extent4,
-                                        int extent5, int extent6, int extent7,
-                                        int extent8);
-    void                              resizeAndPreserve(int extent1,
-                                        int extent2, int extent3, int extent4,
-                                        int extent5, int extent6, int extent7,
-                                        int extent8, int extent9);
-    void                              resizeAndPreserve(int extent1,
-                                        int extent2, int extent3, int extent4,
-                                        int extent5, int extent6, int extent7,
-                                        int extent8, int extent9, 
-                                        int extent10);
-    void                              resizeAndPreserve(int extent1,
-                                        int extent2, int extent3, int extent4,
-                                        int extent5, int extent6, int extent7,
-                                        int extent8, int extent9, int extent10,
-                                        int extent11);
+    void                              resizeAndPreserve(const int extent);
+    void                              resizeAndPreserve(const int extent1, 
+                                        const int extent2);
+    void                              resizeAndPreserve(const int extent1, 
+                                        const int extent2,const int extent3);
+    void                              resizeAndPreserve(const int extent1,
+                                        const int extent2,const int extent3,const int extent4);
+    void                              resizeAndPreserve(const int extent1,
+                                        const int extent2,const int extent3,const int extent4,
+                                        const int extent5);
+    void                              resizeAndPreserve(const int extent1,
+                                        const int extent2,const int extent3,const int extent4,
+                                        const int extent5,const int extent6);
+    void                              resizeAndPreserve(const int extent1,
+                                        const int extent2,const int extent3,const int extent4,
+                                        const int extent5,const int extent6,const int extent7);
+    void                              resizeAndPreserve(const int extent1,
+                                        const int extent2,const int extent3,const int extent4,
+                                        const int extent5,const int extent6,const int extent7,
+                                        const int extent8);
+    void                              resizeAndPreserve(const int extent1,
+                                        const int extent2,const int extent3,const int extent4,
+                                        const int extent5,const int extent6,const int extent7,
+                                        const int extent8,const int extent9);
+    void                              resizeAndPreserve(const int extent1,
+                                        const int extent2,const int extent3,const int extent4,
+                                        const int extent5,const int extent6,const int extent7,
+                                        const int extent8,const int extent9, 
+                                        const int extent10);
+    void                              resizeAndPreserve(const int extent1,
+                                        const int extent2,const int extent3,const int extent4,
+                                        const int extent5,const int extent6,const int extent7,
+                                        const int extent8,const int extent9,const int extent10,
+                                        const int extent11);
 
-    // NEEDS_WORK -- resizeAndPreserve(Range,...)
+    // NEEDS_WORK -- resizeAndPreserve(const Range&,...)
     // NEEDS_WORK -- resizeAndPreserve(const Domain<N_rank>&);
 
     T_array                           reverse(int rank);

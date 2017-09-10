@@ -74,38 +74,6 @@ name(const BZ_BLITZ_SCOPE(ETBase)<T1>& d1,                                 \
                   BZ_BLITZ_SCOPE(asExpr)<T2>::getExpr(d2.unwrap()));       \
 }
 
-#define BZ_DECLARE_ARRAY_ET_BINARY_TINYVEC(name, applic)                   \
-                                                                           \
-template <typename T1, typename T2, int N>                                 \
-_bz_inline_et                                                              \
-typename BZ_BLITZ_SCOPE(BzBinaryExprResult)<applic,                        \
-    BZ_BLITZ_SCOPE(TinyVector)<T2,N>,T1>::T_result                         \
-name(const BZ_BLITZ_SCOPE(TinyVector)<T2,N> d1,                            \
-     const BZ_BLITZ_SCOPE(ETBase)<T1>& d2)                                 \
-{                                                                          \
-    typedef typename                                                       \
-        BZ_BLITZ_SCOPE(BzBinaryExprResult)<applic,                         \
-        BZ_BLITZ_SCOPE(TinyVector)<T2,N>,T1>::T_result result;             \
-    return result(BZ_BLITZ_SCOPE(asExpr)<                                  \
-                  BZ_BLITZ_SCOPE(TinyVector)<T2,N> >::getExpr(d1),         \
-                  BZ_BLITZ_SCOPE(asExpr)<T1>::getExpr(d2.unwrap()));       \
-}                                                                          \
-                                                                           \
-template <typename T1, typename T2, int N>                                 \
-_bz_inline_et                                                              \
-typename BZ_BLITZ_SCOPE(BzBinaryExprResult)<applic,T1,                     \
-    BZ_BLITZ_SCOPE(TinyVector)<T2,N> >::T_result                           \
-name(const BZ_BLITZ_SCOPE(ETBase)<T1>& d1,                                 \
-     const BZ_BLITZ_SCOPE(TinyVector)<T2,N> d2)                            \
-{                                                                          \
-    typedef typename                                                       \
-        BZ_BLITZ_SCOPE(BzBinaryExprResult)<applic,T1,                      \
-        BZ_BLITZ_SCOPE(TinyVector)<T2,N> >::T_result result;               \
-    return result(BZ_BLITZ_SCOPE(asExpr)<T1>::getExpr(d1.unwrap()),        \
-                  BZ_BLITZ_SCOPE(asExpr)<                                  \
-                  BZ_BLITZ_SCOPE(TinyVector)<T2,N> >::getExpr(d2));        \
-}
-
 #define BZ_DECLARE_ARRAY_ET_BINARY_SCALAR(name, applic, sca)               \
                                                                            \
 template<typename T>                                                       \
@@ -233,52 +201,6 @@ name(const BZ_BLITZ_SCOPE(ETBase)<T1>& d1,                                 \
         _bz_typename BZ_BLITZ_SCOPE(asExpr)<T2>::T_expr::T_numtype> > >(   \
         BZ_BLITZ_SCOPE(asExpr)<T1>::getExpr(d1.unwrap()),                  \
         BZ_BLITZ_SCOPE(asExpr)<T2>::getExpr(d2.unwrap()));                 \
-}
-
-#define BZ_DECLARE_ARRAY_ET_BINARY_TINYVEC(name, applic)                   \
-                                                                           \
-template <typename T1, typename T2, int N>                                 \
-_bz_inline_et                                                              \
-BZ_BLITZ_SCOPE(_bz_ArrayExprBinaryOp)<                                     \
-    _bz_typename BZ_BLITZ_SCOPE(asExpr)<                                   \
-    BZ_BLITZ_SCOPE(TinyVector)<T2,N> >::T_expr,                            \
-    _bz_typename BZ_BLITZ_SCOPE(asExpr)<T1>::T_expr,                       \
-    applic<BZ_BLITZ_SCOPE(TinyVector)<T2,N>,                               \
-    _bz_typename BZ_BLITZ_SCOPE(asExpr)<T1>::T_expr::T_numtype> >          \
-name(const BZ_BLITZ_SCOPE(TinyVector)<T2,N> d1,                            \
-     const BZ_BLITZ_SCOPE(ETBase)<T1>& d2)                                 \
-{                                                                          \
-    return BZ_BLITZ_SCOPE(_bz_ArrayExprBinaryOp)<                          \
-        _bz_typename BZ_BLITZ_SCOPE(asExpr)<                               \
-        BZ_BLITZ_SCOPE(TinyVector)<T2,N> >::T_expr,                        \
-        _bz_typename BZ_BLITZ_SCOPE(asExpr)<T1>::T_expr,                   \
-        applic<BZ_BLITZ_SCOPE(TinyVector)<T2,N>,                           \
-        _bz_typename BZ_BLITZ_SCOPE(asExpr)<T1>::T_expr::T_numtype> >(     \
-        BZ_BLITZ_SCOPE(asExpr)<                                            \
-        BZ_BLITZ_SCOPE(TinyVector)<T2,N> >::getExpr(d1),                   \
-        BZ_BLITZ_SCOPE(asExpr)<T1>::getExpr(d2.unwrap()));                 \
-}                                                                          \
-                                                                           \
-template <typename T1, typename T2, int N>                                 \
-_bz_inline_et                                                              \
-BZ_BLITZ_SCOPE(_bz_ArrayExprBinaryOp)<                                     \
-    _bz_typename BZ_BLITZ_SCOPE(asExpr)<T1>::T_expr,                       \
-    _bz_typename BZ_BLITZ_SCOPE(asExpr)<                                   \
-    BZ_BLITZ_SCOPE(TinyVector)<T2,N> >::T_expr,                            \
-    applic<_bz_typename BZ_BLITZ_SCOPE(asExpr)<T1>::T_expr::T_numtype,     \
-    BZ_BLITZ_SCOPE(TinyVector)<T2,N> > >                                   \
-name(const BZ_BLITZ_SCOPE(ETBase)<T1>& d1,                                 \
-     const BZ_BLITZ_SCOPE(TinyVector)<T2,N> d2)                            \
-{                                                                          \
-    return BZ_BLITZ_SCOPE(_bz_ArrayExprBinaryOp)<                          \
-        _bz_typename BZ_BLITZ_SCOPE(asExpr)<T1>::T_expr,                   \
-        _bz_typename BZ_BLITZ_SCOPE(asExpr)<                               \
-        BZ_BLITZ_SCOPE(TinyVector)<T2,N> >::T_expr,                        \
-        applic<_bz_typename BZ_BLITZ_SCOPE(asExpr)<T1>::T_expr::T_numtype, \
-        BZ_BLITZ_SCOPE(TinyVector)<T2,N> > >(                              \
-        BZ_BLITZ_SCOPE(asExpr)<T1>::getExpr(d1.unwrap()),                  \
-        BZ_BLITZ_SCOPE(asExpr)<                                            \
-        BZ_BLITZ_SCOPE(TinyVector)<T2,N> >::getExpr(d2));                  \
 }
 
 #define BZ_DECLARE_ARRAY_ET_BINARY_SCALAR(name, applic, sca)               \
