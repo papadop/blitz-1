@@ -128,6 +128,13 @@ _bz_global int  assertSuccessCount BZ_GLOBAL_INIT(0);
             blitz::checkAssert(X, __FILE__, __LINE__);                \
         }
 
+    #define BZPRECHECK_WITH_LOCATION(X,Y,FILE,LINE)            \
+        {                                                      \
+            if ((assertFailMode == false) && (!(X)))           \
+                BZ_STD_SCOPE(cerr) << Y << BZ_STD_SCOPE(endl); \
+            bltz::checkAssert(X, FILE, LINE);                        \
+        }
+
     #define BZ_DEBUG_MESSAGE(X)                                          \
         {                                                                \
             if (assertFailMode == false)                                 \
@@ -157,6 +164,18 @@ _bz_global int  assertSuccessCount BZ_GLOBAL_INIT(0);
             assert(0);                                                      \
           }                                                                 \
         }
+
+    #define BZPRECHECK_WITH_LOCATION(X,Y,FILE,LINE)                         \
+        { if (!(X))                                                         \
+          { BZ_STD_SCOPE(cerr) << "[Blitz++] Precondition failure: Module " \
+                               << FILE                                      \
+               << " line " << LINE << BZ_STD_SCOPE(endl)                    \
+               << Y << BZ_STD_SCOPE(endl);                                  \
+            BZ_STD_SCOPE(cerr).flush();                                     \
+            assert(0);                                                      \
+          }                                                                 \
+        }
+
 
     #define BZ_DEBUG_MESSAGE(X)                                    \
         { BZ_STD_SCOPE(cout) << __FILE__ << ":" << __LINE__ << " " \

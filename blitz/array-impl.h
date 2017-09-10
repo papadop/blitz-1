@@ -49,6 +49,10 @@
 #include <blitz/tinyvec2.h>
 #include <blitz/tvecglobs.h>
 
+#ifdef BZ_HAVE_STL
+#include <iterator>
+#endif // BZ_HAVE_STL
+
 #include <blitz/indexexpr.h>
 
 #include <blitz/array/slice.h>     // Subarrays and slicing
@@ -70,9 +74,12 @@ BZ_NAMESPACE(blitz)
  */
 
 template<typename T_numtype, int N_rank>
+class DataIterator;
+
+template<typename T_numtype, int N_rank, typename OPTION=DataIterator<T_numtype,N_rank> >
 class ArrayIterator;
 
-template<typename T_numtype, int N_rank>
+template<typename T_numtype, int N_rank, typename OPTION=DataIterator<T_numtype,N_rank> >
 class ConstArrayIterator;
 
 template<typename T_numtype, int N_rank>
@@ -127,6 +134,7 @@ public:
      *            templates
      * iterator   is a STL-style iterator
      * const_iterator is an STL-style const iterator
+     * reverse_iterator and const_reverse_iterator are STL-style reverse iterators.
      * T_default_storage is the default storage class type for the array
      */
 
@@ -137,6 +145,38 @@ public:
 
     typedef ArrayIterator<T_numtype,N_rank> iterator;
     typedef ConstArrayIterator<T_numtype,N_rank> const_iterator;
+
+#ifdef BZ_HAVE_STL
+    template <typename Iterator>
+    struct bz_reverse_iterator: public std::reverse_iterator<Iterator> {
+
+        typedef typename Iterator::Position Position;
+        typedef std::reverse_iterator<Iterator> base_;
+
+        bz_reverse_iterator(): base_() { }
+        explicit
+        bz_reverse_iterator(Iterator i): base_(i) { }
+        bz_reverse_iterator(const bz_reverse_iterator& i): base_(i) { }
+        template<typename Iter>
+        bz_reverse_iterator(const bz_reverse_iterator<Iter>& i): base_(i) { }
+
+        Position position() const {
+            Iterator tmp = base_::base();
+            --tmp;
+            return tmp.position();
+        }
+    };
+
+    typedef bz_reverse_iterator<const_iterator> const_reverse_iterator;
+    typedef bz_reverse_iterator<iterator>		 reverse_iterator;
+
+    reverse_iterator rbegin() { return reverse_iterator(end());   }
+    reverse_iterator rend()   { return reverse_iterator(begin()); }
+
+    const_reverse_iterator rbegin() const { return const_reverse_iterator(end());   }
+    const_reverse_iterator rend()   const { return const_reverse_iterator(begin()); }
+
+#endif // BZ_HAVE_STL
 
     /**
      * Set default storage order. This is configurable

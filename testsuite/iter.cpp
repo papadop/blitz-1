@@ -9,7 +9,7 @@ BZ_USING_NAMESPACE(std)
 
 BZ_USING_NAMESPACE(blitz)
 
-void check(const Array<int,2>& A, const Array<int,1>& b)
+void check_iter1(const Array<int,2>& A, const Array<int,1>& b)
 {
     int i = 0;
     Array<int,2>::const_iterator beg = A.begin(), end = A.end();
@@ -24,6 +24,35 @@ void check(const Array<int,2>& A, const Array<int,1>& b)
         BZTEST((*--iter) == b(--i));
     }
     BZTEST(i == 0);
+}
+
+void check_iter2(const Array<int,2>& A, const Array<int,1>& b)
+{
+    int i = 0;
+    Array<int,2>::const_iterator beg = A.begin(), end = A.end();
+    Array<int,2>::const_iterator iter = beg;
+
+    while (iter < end) {
+        std::cerr << iter.position() << std::endl;
+        BZTEST((*iter) == b(i));
+        iter += 2;
+        i    += 2;
+    }
+    BZTEST(i == A.numElements() + A.numElements()%2 );
+
+    while (iter > beg) {
+        iter -= 2;
+        i    -= 2;
+        std::cerr << iter.position() << std::endl;
+        BZTEST(*iter == b(i));
+    }
+    BZTEST(i == 0);
+}
+
+void check(const Array<int,2>& A, const Array<int,1>& b)
+{
+    check_iter1(A,b);
+    check_iter2(A,b);
 }
 
 #ifdef BZ_HAVE_STL
@@ -103,6 +132,15 @@ int main()
     const Array<int,2>& B(A);
     Array<int,2>::const_iterator citer = B.begin();
     checkInterface(citer);
+
+#if 0
+    for (Array<int,2>::const_iterator i=A.begin();i!=A.end();++i)
+        std::cerr << i.position() << std::endl;
+
+    std::cerr << std::endl;
+    for (Array<int,2>::const_reverse_iterator i=A.rbegin();i!=A.rend();++i)
+        std::cerr << i.position() << std::endl;
+#endif
   }
 #endif // BZ_HAVE_STL
 
