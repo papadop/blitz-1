@@ -1,81 +1,60 @@
-CMAKE_MINIMUM_REQUIRED(VERSION 2.4)
+cmake_minimum_required(VERSION 2.4)
 
-SET(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
+set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
 
-PROJECT(Blitz++ CXX)
+project(blitz CXX)
 
 #   Blitz version and release date.
 
-SET(Blitz++_MAJOR 0)
-SET(Blitz++_MINOR 9)
-SET(Blitz++_PATCH 0)
-SET(Blitz++_VERSION ${Blitz++_MAJOR}.${Blitz++_MINOR}.${Blitz++_PATCH})
-SET(Blitz++_Release "2010-05-24")
+set(blitz_MAJOR 0)
+set(blitz_MINOR 10)
+set(blitz_PATCH 0)
+set(blitz_VERSION ${blitz_MAJOR}.${blitz_MINOR}.${blitz_PATCH})
+set(blitz_Release "2013-08-24")
+set(BZ_PACKAGE_STRING "${CMAKE_PROJECT_NAME} ${blitz_MAJOR}.${blitz_MINOR}")
 
 #   Packaging
 
-SET(CPACK_GENERATOR "TGZ")
-SET(CPACK_PACKAGE_VERSION_MAJOR ${Blitz++_MAJOR})
-SET(CPACK_PACKAGE_VERSION_MINOR ${Blitz++_MINOR})
-SET(CPACK_PACKAGE_VERSION_PATCH ${Blitz++_PATCH})
-SET(CPACK_SOURCE_GENERATOR "TBZ2")
-SET(CPACK_SOURCE_PACKAGE_FILE_NAME Blitz++-${Blitz++_VERSION})
-SET(CPACK_SOURCE_IGNORE_FILES ".*.swp$" ".*.swo$" "~$" ".bz2$" ".gz$")
+set(CPACK_GENERATOR "TGZ")
+set(CPACK_PACKAGE_VERSION_MAJOR ${blitz_MAJOR})
+set(CPACK_PACKAGE_VERSION_MINOR ${blitz_MINOR})
+set(CPACK_PACKAGE_VERSION_PATCH ${blitz_PATCH})
+set(CPACK_SOURCE_GENERATOR "TBZ2")
+set(CPACK_SOURCE_PACKAGE_FILE_NAME blitz-${blitz_VERSION})
+set(CPACK_SOURCE_IGNORE_FILES ".*.swp$" ".*.swo$" "~$" ".bz2$" ".gz$")
 
-INCLUDE(CPack)
-INCLUDE(UnitTests)
-INCLUDE(BlitzConfigFileName)
-INCLUDE(Win32Compat)
+include(CPack)
+include(UnitTests)
+include(BlitzConfigFileName)
+include(GenerateConfigFile)
+include(Win32Compat)
+include(CreatePkgConfig)
 
-INCLUDE_DIRECTORIES(BEFORE SYSTEM ${CMAKE_SOURCE_DIR} ${CMAKE_BINARY_DIR})
+include_directories(BEFORE SYSTEM ${CMAKE_SOURCE_DIR} ${CMAKE_BINARY_DIR})
 
-ADD_CUSTOM_TARGET(generated-headers ALL)
+add_custom_target(generated-headers ALL)
 
-#Makeinfo, texi2html, doxygen
-# blas
+set(PKGCONFIG_LIBS -lblitz)
 
-SET(GENERATED_HEADERS)
-ADD_SUBDIRECTORY(bin) 
-ADD_SUBDIRECTORY(blitz) 
-ADD_SUBDIRECTORY(random) 
-ADD_SUBDIRECTORY(lib) 
-ADD_SUBDIRECTORY(doc) 
+add_subdirectory(bin) 
+add_subdirectory(blitz) 
+add_subdirectory(random) 
+add_subdirectory(lib) 
+add_subdirectory(doc) 
 
-IF (BUILD_TESTING)
-    ADD_SUBDIRECTORY(testsuite) 
-    ADD_SUBDIRECTORY(examples) 
-ENDIF()
+if (BUILD_TESTING)
+    add_subdirectory(testsuite) 
+    add_subdirectory(examples) 
+    add_subdirectory(benchmarks) 
+endif()
 
-OPTION(FORTRAN "Enable Fortran benchmarks")
-IF (Fortran)
-    ENABLE_LANGUAGE(Fortran OPTIONAL)
-    ADD_SUBDIRECTORY(benchmarks) 
-ELSE()
-    MESSAGE(STATUS "${CMAKE_CURRENT_SOURCE_DIR}: skipped subdir $(FORTRAN_DIRS)")
-ENDIF()
+#   Configuration files.
 
-########### install files ###############
+CreatePkgConfigInfo(blitz)
+Dependencies(blitz ${DEPS})
+GenerateConfigFile(blitz LIBRARIES blitz ${EXTRA_LIBS})
 
-INSTALL(EXPORT blitz DESTINATION lib/pkgconfig)
-INSTALL(FILES blitz.pc DESTINATION lib/pkgconfig)
+#   Installation
 
-#original (partial) Makefile.am contents follow:
-
-#pkgconfigdir = $(libdir)/pkgconfig
-#pkgconfig_DATA = blitz.pc
-#
-#DISTCLEANFILES = blitz.pc blitz.pc.in blitz-uninstalled.pc
-#
-#lib: blitz-library
-#
-#blitz-library:
-#	@(cd lib && $(MAKE) $(AM_MAKEFLAGS)) || exit 1;
-#
-#check-testsuite: lib
-#	@(cd testsuite && $(MAKE) $(AM_MAKEFLAGS) $@) || exit 1;
-#
-#check-examples: lib
-#	@(cd examples && $(MAKE) $(AM_MAKEFLAGS) $@) || exit 1;
-#
-#check-benchmarks: lib
-#	@(cd benchmarks && $(MAKE) $(AM_MAKEFLAGS) $@) || exit 1;
+install(EXPORT blitz DESTINATION ${CMAKE_INSTALL_LIBDIR}/blitz)
+install(FILES ${CMAKE_BINARY_DIR}/blitz.pc DESTINATION ${CMAKE_INSTALL_LIBDIR}/pkgconfig)

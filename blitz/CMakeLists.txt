@@ -1,9 +1,62 @@
-INCLUDE(CheckCXXFeatures)
+include(CheckCXXFeatures)
 
-OPTION(BZ_FULLY64BIT "Enable 64 dimensions with > 2^31 elements (NOT IMPLEMENTED)")
-OPTION(BZ_THREADSAFE "Enable Blitz thread-safety features")
+option(BZ_FULLY64BIT "Enable 64 dimensions with > 2^31 elements (NOT IMPLEMENTED)" OFF)
+option(BZ_THREADSAFE "Enable Blitz thread-safety features" OFF)
 
-IF (NOT CHECKED_COMPILER_CXX_FEATURES)
+option(TBB "Use Intel Threading Building Blocks atomic types" OFF)
+if (TBB)
+    set(BZ_THREADSAFE_USE_TBB TRUE)
+    CHECK_HEADER(BZ_HAVE_TBB_ATOMIC_H "tbb/atomic.h")
+endif()
+
+option(SIMD_EXTENSION "Facilitate compiler vectorization optimizations for SIMD instruction width of n bytes." OFF)
+if (SIMD_EXTENSION)
+    set(USE_ALIGNMENT_PRAGMAS TRUE)
+    CHECK_ALIGNMENT_DIRECTIVE(BZ_)
+    set(BZ_SIMD_WIDTH 1)
+    if (BZ_SIMD_WIDTH GREATER 1)
+        option(ARRAY_LENGTH_PADDING "Sets the default array padding policy to pad all lowest-rank lengths to nearest larger SIMD width. Caution: This means that arrays will in general be non-contiguous." OFF)
+        if (ARRAY_LENGTH_PADDING)
+            set(BZ_PAD_ARRAYS TRUE)
+        endif()
+    endif()
+endif()
+
+set(EXTRA_LIBS)
+option(ENABLE_SERIALISATION "Enable serialization support using Boost::Serialization" OFF)
+if (ENABLE_SERIALISATION)
+    find_package(Boost COMPONENTS serialization)
+    if (Boost_FOUND)
+        set(BZ_HAVE_BOOST TRUE)
+        include_directories(${Boost_INCLUDE_DIRS})
+        if (Boost_SERIALIZATION_FOUND)
+            set(DEP_PKGS ${DEP_PKGS} BOOST)
+            set(BOOST_command "Boost COMPONENTS serialization" PARENT_SCOPE)
+            set(BZ_HAVE_BOOST_SERIALIZATION TRUE)
+            set(EXTRA_LIBS ${EXTRA_LIBS} ${BOOST_LIBRARIES})
+        else()
+            message(WARNING "Boost serialization library not found !")
+        endif()
+    endif()
+endif()
+
+find_library(BZ_HAVE_LIBPAPI papi)
+if (BZ_HAVE_LIBPAPI)
+    set(DEP_LIBS ${DEP_LIBS} papi)
+    set(EXTRA_LIBS ${EXTRA_LIBS} ${BZ_HAVE_LIBPAPI})
+    set(PKGCONFIG_LIBS ${PKGCONFIG_LIBS} -lpapi)
+endif()
+
+find_library(BZ_HAVE_LIBM m)
+if (BZ_HAVE_LIBM)
+    set(DEP_LIBS ${DEP_LIBS} m)
+    set(EXTRA_LIBS ${EXTRA_LIBS} ${BZ_HAVE_LIBM})
+    set(PKGCONFIG_LIBS ${PKGCONFIG_LIBS} -lm)
+endif()
+set(BLITZ_EXTRA_LIBRARIES ${EXTRA_LIBS} PARENT_SCOPE)
+set(DEPS ${DEP_PKGS} LIBRARIES ${DEP_LIBS} PARENT_SCOPE)
+
+if (NOT CHECKED_COMPILER_CXX_FEATURES)
     CHECK_ALL_CXX_FEATURES(BZ_)
     CHECK_HEADER(HAVE_INTTYPES_H inttypes.h)
     SET(BZ_MATH_ABSINT_IN_NAMESPACE_STD ${BZ_HAVE_MATH_ABSINT_IN_NAMESPACE_STD})
@@ -12,30 +65,31 @@ IF (NOT CHECKED_COMPILER_CXX_FEATURES)
     SET(BZ_HAVE_NCEG_RESTRICT_EGCS      ${BZ_HAVE_RESTRICT_EGCS})
     CONFIGURE_FILE(${CMAKE_CURRENT_SOURCE_DIR}/config.cmake.h.in ${BLITZ_CONFIG_FILE})
     SET(CHECKED_COMPILER_CXX_FEATURES TRUE CACHE INTERNAL "Gating variable to avoid checking compiler features multiple times")
-ENDIF()
+endif()
 
-MACRO(GENERATE_BLITZ_HEADER header prog var)
-    ADD_CUSTOM_TARGET(${header} ALL)
-    ADD_DEPENDENCIES(${header} ${prog})
-    ADD_DEPENDENCIES(generated-headers ${header})
-    GET_TARGET_PROPERTY(PROG_EXE ${prog} LOCATION)
-    ADD_CUSTOM_COMMAND(
+macro(GENERATE_BLITZ_HEADER header prog var)
+    add_custom_target(${header} ALL)
+    add_dependencies(${header} ${prog})
+    add_dependencies(generated-headers ${header})
+    get_target_property(PROG_EXE ${prog} LOCATION)
+    add_custom_command(
         COMMAND ${PROG_EXE}
         TARGET  ${header}
         WORKING_DIRECTORY ${PROJECT_BINARY_DIR}/blitz/generate
         OUTPUTS ${header}
     )
-    ADD_CUSTOM_COMMAND(
+    add_custom_command(
         SOURCE    ${header}
         TARGET    ${header}
    )
-   SET(${var} ${${var}} ${CMAKE_CURRENT_BINARY_DIR}/${header})
-ENDMACRO()
+   set(${var} ${${var}} ${CMAKE_CURRENT_BINARY_DIR}/${header})
+endmacro()
 
-ADD_SUBDIRECTORY(generate) 
-ADD_SUBDIRECTORY(meta) 
-ADD_SUBDIRECTORY(array)
+add_subdirectory(generate) 
+add_subdirectory(meta) 
+add_subdirectory(array)
 
+set(GENERATED_HEADERS)
 GENERATE_BLITZ_HEADER(vecbops.cc    genvecbops  GENERATED_HEADERS)
 GENERATE_BLITZ_HEADER(vecuops.cc    genvecuops  GENERATED_HEADERS)
 GENERATE_BLITZ_HEADER(vecwhere.cc   genvecwhere GENERATED_HEADERS)
@@ -45,15 +99,17 @@ GENERATE_BLITZ_HEADER(matuops.h     genmatuops  GENERATED_HEADERS)
 GENERATE_BLITZ_HEADER(mathfunc.h    genmathfunc GENERATED_HEADERS)
 GENERATE_BLITZ_HEADER(promote-old.h genpromote  GENERATED_HEADERS)
 
-SET(BLITZ_HEADERS
-    applics.h array.h array-impl.h array-old.h bench.cc benchext.cc benchext.h bench.h blitz.h bzconfig.h bzdebug.h compiler.h etbase.h extremum.h
-    funcs.h indexexpr.h limits-hack.h listinit.h matdiag.h matexpr.h matgen.h mathf2.h matltri.h matref.h matrix.cc matrix.h matsymm.h mattoep.h
-    matutri.h memblock.cc memblock.h minmax.h mstruct.h numinquire.h numtrait.h ops.h prettyprint.h promote.h rand-dunif.h rand-mt.h rand-normal.h
-    random.h randref.h rand-tt800.h rand-uniform.h range.h reduce.h shapecheck.h tau.h timer.h tiny.h tinymatexpr.h tinymat.h tinymatio.cc tinyvec.cc
-    tinyvec-et.h tinyvec.h tinyvecio.cc tinyveciter.h traversal.cc traversal.h tuning.h tvcross.h tvecglobs.h update.h vecaccum.cc vecall.cc vecany.cc
-    veccount.cc vecdelta.cc vecdot.cc vecexpr.h vecexprwrap.h vecglobs.cc vecglobs.h vecio.cc veciter.h vecmax.cc vecmin.cc vecnorm1.cc vecnorm.cc
-    vecpick.cc vecpick.h vecpickio.cc vecpickiter.h vecproduct.cc vecsum.cc vector.cc vector-et.h vector.h vecwhere.h wrap-climits.h zero.cc zero.h
-)
+set(BLITZ_HEADERS
+    array-impl.h array.cc array.h bench.cc bench.h benchext.cc benchext.h blitz.h bounds.h bzdebug.h
+    compiler.h constpointerstack.h etbase.h et-forward.h funcs.h globeval.cc indexexpr.h indexmap-forward.h
+    levicivita.h limits-hack.h listinit.h memblock.cc memblock.h minmax.h numinquire.h numtrait.h ops.h
+    prettyprint.h promote.h range.h range.cc ranks.h reduce.h shapecheck.h simdtypes.h tau.h timer.h tinymat2.h
+    tinymat2.cc tinymat2io.cc tinyvec2.cc tinyvec2.h tinyvec2io.cc tm2fastiter.h tmevaluate.h tv2fastiter.h
+    tvevaluate.h traversal.cc traversal.h tuning.h tvcross.h tvecglobs.h update.h wrap-climits.h)
 
-INSTALL(FILES ${BLITZ_HEADERS} ${GENERATED_HEADERS} DESTINATION include/blitz)
-INSTALL(FILES ${BLITZ_CONFIG_FILE} DESTINATION include/blitz/${BLITZ_CONFIG_INSTALL_DIR})
+foreach (i ${BLITZ_HEADERS})
+    set(HEADERS ${HEADERS} ${CMAKE_CURRENT_SOURCE_DIR}/${i})
+endforeach()
+
+install(FILES ${HEADERS} ${GENERATED_HEADERS} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/blitz)
+install(FILES ${BLITZ_CONFIG_FILE} DESTINATION ${CMAKE_INSTALL_LIBDIR}/blitz/include/blitz)

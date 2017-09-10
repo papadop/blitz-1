@@ -1,121 +1,25 @@
+# Configure the script and the Doxyfile, then add target
 
-########### install files ###############
+find_package(Doxygen)
 
-INSTALL(FILES   DESTINATION /share/doc/$(PACKAGE)-$(VERSION)/doxygen )
+if (DOXYGEN_FOUND)
+    if (NOT DOXYGEN_DOT_PATH)
+        get_filename_component(DOT_PATH ${DOT} PATH)
+    endif()
 
+    configure_file(${CMAKE_CURRENT_SOURCE_DIR}/Doxyfile.in ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile)
 
+    add_dependencies(blitz-doc doxygen_outputs)
 
-#original Makefile.am contents follow:
+    add_custom_target(doxygen_outputs
+                      COMMAND ${DOXYGEN_EXECUTABLE} ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile
+                      COMMAND ${CMAKE_COMMAND} -E chdir latex; ${CMAKE_MAKE_PROGRAM}
+                      DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile)
 
-#
-#
-## Support doxygen documentation ?
-#
-#docdir = $(datadir)/doc/$(PACKAGE)-$(VERSION)/doxygen
-#
-#DISTCLEANFILES = Doxyfile doxygen-warning 
-#
-#if DOXYGEN_DOC
-#
-#
-#html/index.html: Doxyfile
-#	@DOXYGEN@ 
-#
-## Document Targets
-#html: html/index.html
-#dvi: $(PACKAGE).dvi
-#pdf: $(PACKAGE).pdf
-#ps: $(PACKAGE).ps
-#
-#$(PACKAGE).dvi: html/index.html
-#	@if test -d ./latex; then \
-#	echo "Making DVI manual"; \
-#	if test -f $@; then \
-#		$(RM) $@; \
-#	fi; \
-#		$(MAKE) -C ./latex refman.dvi; \
-#		$(LN_S) ./latex/refman.dvi $@; \
-#	fi
-#
-#$(PACKAGE).pdf: html/index.html
-#	@if test -d ./latex; then \
-#	echo "Making PDF manual"; \
-#	if test -f $@; then \
-#		$(RM) $@; \
-#	fi; \
-#		$(MAKE) -C ./latex refman.pdf; \
-#		$(LN_S) ./latex/refman.pdf $@; \
-#	fi
-#
-#$(PACKAGE).ps: html/index.html
-#	@if test -d ./latex; then \
-#	echo "Making PS manual"; \
-#	if test -f $@; then \
-#		$(RM) $@; \
-#	fi; \
-#		$(MAKE) -C ./latex refman.ps; \
-#		$(LN_S) ./latex/refman.pdf $@; \
-#	fi
-#
-#doc: html/index.html
-#	@if test -d latex; then \
-#		$(MAKE) ps; \
-#		$(MAKE) pdf; \
-#	fi
-#
-#else
-#doc:
-#endif
-#
-#
-#all-local: doc
-#
-#
-## documentation distribution
-#doc-dist: doc
-#	@if test -d html; then \
-#		echo "please wait while archiving the docs."; \
-#		tar cf - -C html . | bzip2 --best -c > $(PACKAGE)-docs.tar.bz2; \
-#	fi
-#
-## Clean hooks
-#clean-local:
-#	@if test -f $(PACKAGE).pdf; then \
-#		$(RM) -f $(PACKAGE).pdf; \
-#	fi
-#	@if test -f $(PACKAGE).ps; then \
-#		$(RM) -f $(PACKAGE).ps; \
-#	fi
-#	@if test -d html; then \
-#		$(RM) -rf html; \
-#	fi
-#	@if test -d latex; then \
-#		$(RM) -rf latex; \
-#	fi
-#
-## Install hooks
-#make-install-dirs:
-#	@if test '!' -d $(DESTDIR)$(docdir) ; \
-#		then mkdir -p $(DESTDIR)$(docdir) ; \
-#	fi
-#
-#install-data-hook: make-install-dirs
-#	@if test -d html; then \
-#		echo Installing HTML documentation into $(DESTDIR)$(docdir) ; \
-#		$(INSTALL_DATA) html/* $(DESTDIR)$(docdir) ; \
-#	fi
-#	@if test -f $(PACKAGE).pdf; then \
-#		echo Installing PDF manual into $(DESTDIR)$(docdir) ; \
-#		$(INSTALL_DATA) $(PACKAGE).pdf $(DESTDIR)$(docdir) ; \
-#	fi
-#	@if test -f $(PACKAGE).ps; then \
-#		echo Installing PS manual into $(DESTDIR)$(docdir) ; \
-#		$(INSTALL_DATA) $(PACKAGE).ps $(DESTDIR)$(docdir) ; \
-#	fi
-#
-#uninstall-hook: 
-#	@echo Uninstalling doxygen documentation directory ; \
-#	rm -rf "$(DESTDIR)$(docdir)";
-#
-#
-#
+    set(CMAKE_INSTALL_DOCDIR ${CMAKE_INSTALL_DOCDIR}-${blitz_MAJOR}.${blitz_MINOR}.${blitz_PATCH})
+
+    install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/html/ DESTINATION ${CMAKE_INSTALL_DOCDIR}/reference)
+    install(FILES latex/refman.pdf DESTINATION ${CMAKE_INSTALL_DOCDIR})
+
+    set_directory_properties(PROPERTIES ADDITIONAL_MAKE_CLEAN_FILES "html;latex;doxygen-warning")
+endif()
