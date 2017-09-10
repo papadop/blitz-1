@@ -6,6 +6,7 @@
 
 #include <blitz/array/iter.h>       // Array iterators
 #include <blitz/array/fastiter.h>   // Fast Array iterators (for et)
+#include <blitz/tv2fastiter.h>      // Fast TinYVector2 iterators (for et)
 #include <blitz/array/asexpr.cc>       // ET type functions
 #include <blitz/array/expr.cc>       // Array expression objects
 #include <blitz/range.cc>       // range objects
