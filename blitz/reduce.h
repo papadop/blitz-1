@@ -33,6 +33,8 @@
 #ifndef BZ_REDUCE_H
 #define BZ_REDUCE_H
 
+#include <blitz/minmax.h>
+
 #include <blitz/blitz.h>
 #include <blitz/numtrait.h>
 #include <blitz/numinquire.h>
@@ -114,8 +116,7 @@ public:
     ReduceMin() { }
 
     bool operator()(const T_sourcetype& x,const int=0) const {
-        if (x < min_)
-            min_ = x;
+        min_ = blitz::extrema::min(x,min_);
         return true;
     }
 
@@ -143,8 +144,7 @@ public:
     ReduceMax() { }
 
     bool operator()(const T_sourcetype& x,const int=0) const {
-        if (x > max_)
-            max_ = x;
+        max_ = blitz::extrema::max(x,max_);
         return true;
     }
 
@@ -179,10 +179,7 @@ public:
     ReduceMinMax() { }
 
     bool operator()(T_sourcetype x,const int=0) const {
-        if (x > minmax_.max)
-            minmax_.max = x;
-        else if (x < minmax_.min)
-            minmax_.min = x;
+        blitz::extrema::minmax(x,minmax_.min,minmax_.max);
         return true;
     }
 
