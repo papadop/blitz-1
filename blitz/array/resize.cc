@@ -911,7 +911,7 @@ void Array<T_numtype, N_rank>::resizeAndPreserve(const int length0,const int len
             B(overlap0, overlap1, overlap2, overlap3, overlap4, overlap5,
               overlap6, overlap7, overlap8, overlap9, overlap10)
                 = (*this)(overlap0, overlap1, overlap2, overlap3, overlap4,
-                          overlap5, overlap6, overlap7, overlap8, overlap9, overlap10);
+                overlap5, overlap6, overlap7, overlap8, overlap9, overlap10);
         }
         reference(B);
     }
