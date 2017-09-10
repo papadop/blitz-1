@@ -132,7 +132,7 @@ _bz_global int  assertSuccessCount BZ_GLOBAL_INIT(0);
         {                                                      \
             if ((assertFailMode == false) && (!(X)))           \
                 BZ_STD_SCOPE(cerr) << Y << BZ_STD_SCOPE(endl); \
-            bltz::checkAssert(X, FILE, LINE);                        \
+            blitz::checkAssert(X, FILE, LINE);                        \
         }
 
     #define BZ_DEBUG_MESSAGE(X)                                          \
