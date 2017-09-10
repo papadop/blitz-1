@@ -1,3 +1,5 @@
+set(BLITZ_INSTALL_DOCDIR ${CMAKE_INSTALL_DOCDIR}-${blitz_MAJOR}.${blitz_MINOR}.${blitz_PATCH})
+
 add_custom_target(blitz-doc ALL DEPENDS stencils doc-examples)
 
 add_subdirectory(examples)

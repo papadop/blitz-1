@@ -16,10 +16,10 @@ if (DOXYGEN_FOUND)
                       COMMAND ${CMAKE_COMMAND} -E chdir latex; ${CMAKE_MAKE_PROGRAM}
                       DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile)
 
-    set(CMAKE_INSTALL_DOCDIR ${CMAKE_INSTALL_DOCDIR}-${blitz_MAJOR}.${blitz_MINOR}.${blitz_PATCH})
+    set(BLITZ_INSTALL_DOCDIR ${CMAKE_INSTALL_DOCDIR}-${blitz_MAJOR}.${blitz_MINOR}.${blitz_PATCH})
 
-    install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/html/ DESTINATION ${CMAKE_INSTALL_DOCDIR}/reference)
-    install(FILES latex/refman.pdf DESTINATION ${CMAKE_INSTALL_DOCDIR})
+    install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/html/ DESTINATION ${BLITZ_INSTALL_DOCDIR}/reference)
+    install(FILES latex/refman.pdf DESTINATION ${BLITZ_INSTALL_DOCDIR})
 
     set_directory_properties(PROPERTIES ADDITIONAL_MAKE_CLEAN_FILES "html;latex;doxygen-warning")
 endif()
