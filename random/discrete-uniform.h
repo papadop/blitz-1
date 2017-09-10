@@ -45,14 +45,14 @@ public:
 
     DiscreteUniform(T n)
     {
-        blitz::BZPRECONDITION(n < 4294967295U);
+        BZPRECONDITION(n < 4294967295U);
         n_ = n;
     }
 
   DiscreteUniform(T n, unsigned int i) :
     IRNGWrapper<IRNG,stateTag>::IRNGWrapper(i)
     {
-        blitz::BZPRECONDITION(n < 4294967295U);
+        BZPRECONDITION(n < 4294967295U);
         n_ = n;
     }
 
