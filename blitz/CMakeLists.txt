@@ -13,7 +13,7 @@ option(SIMD_EXTENSION "Facilitate compiler vectorization optimizations for SIMD 
 if (SIMD_EXTENSION)
     set(USE_ALIGNMENT_PRAGMAS TRUE)
     CHECK_ALIGNMENT_DIRECTIVE(BZ_)
-    option(BZ_SIMD_WIDTH "Size of simd types in bytes." 1)
+    set(BZ_SIMD_WIDTH 1 CACHE STRING "Size of simd types in bytes.")
     if (BZ_SIMD_WIDTH GREATER 1)
         option(ARRAY_LENGTH_PADDING "Sets the default array padding policy to pad all lowest-rank lengths to nearest larger SIMD width. Caution: This means that arrays will in general be non-contiguous." OFF)
         if (ARRAY_LENGTH_PADDING)
