@@ -6,7 +6,7 @@
 
 BZ_NAMESPACE(blitz)
 
-template<class T,int N> class TinyVector;
+template<typename T,int N> class TinyVector;
 
 /** This metaprogram returns the number of bits necessary to fit the
     specified number. The metaprogram result for I is obtained as
