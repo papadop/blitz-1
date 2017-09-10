@@ -25,7 +25,7 @@ add_custom_target(benchmark)
 
 TESTS(benchmark ${LOOP_KERNELS} ${OTHER_BENCH})
 
-add_custom_target(check-benchmark
+add_custom_target(check-benchmarks
                   DEPENDS blitz benchmark
                   COMMAND ${CMAKE_BUILD_TOOL} test)
 
