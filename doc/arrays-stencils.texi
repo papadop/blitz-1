@@ -297,7 +297,7 @@ These are available in multicomponent versions: for example,
 @code{backward42(A,component,dimension)} gives the backward42 operator for
 the specified component (Components are numbered 0, 1, ... N-1).
 
-@subsection Laplacian (@math{@nabla ^2}) operators
+@subsection Laplacian (@math{@nabla{} ^2}) operators
 @cindex Laplacian operators
 
 @table @code
@@ -319,7 +319,7 @@ the specified component (Components are numbered 0, 1, ... N-1).
 Note that the above are available in normalized versions
 @code{Laplacian2D4n}, @code{Laplacian3D4n} which have factors @math{h^2}.
 
-@subsection Gradient (@math{@nabla}) operators
+@subsection Gradient (@math{@nabla{}}) operators
 @cindex gradient operators
 
 These return @code{TinyVector}s of the appropriate numeric type and length:
@@ -391,7 +391,7 @@ Note that the above are available in normalized versions @code{gradSqr2Dn},
 @code{gradSqr2D4n}, @code{gradSqr3Dn}, @code{gradSqr3D4n} which have factors
 @math{h^2}.
 
-@subsection Curl (@math{@nabla @times}) operators
+@subsection Curl (@math{@nabla{}@times()}) operators
 @cindex curl operator
 
 These curl operators return scalar values:
@@ -439,7 +439,7 @@ Factor: @math{12h}
 Note that the above are available in normalized versions @code{curln} and
 @code{curl4n}, which have factors of @code{h}.
 
-@subsection Divergence (@math{@nabla @cdot}) operators
+@subsection Divergence (@math{@nabla{}@cdot{}}) operators
 @cindex divergence operator
 
 The divergence operators return a scalar value.
