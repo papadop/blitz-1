@@ -30,6 +30,7 @@ include(BlitzConfigFileName)
 include(GenerateConfigFile)
 include(Win32Compat)
 include(CreatePkgConfig)
+include(GNUInstallDirs)
 
 include_directories(BEFORE SYSTEM ${CMAKE_SOURCE_DIR} ${CMAKE_BINARY_DIR})
 

@@ -1,5 +1,3 @@
-set(BLITZ_INSTALL_DOCDIR ${CMAKE_INSTALL_DOCDIR}-${blitz_MAJOR}.${blitz_MINOR}.${blitz_PATCH})
-
 add_custom_target(blitz-doc ALL DEPENDS stencils doc-examples)
 
 add_subdirectory(examples)
@@ -50,11 +48,11 @@ find_program(TEXI2HTML texi2html
 mark_as_advanced(TEXI2HTML)
 
 if (TEXI2HTML)
-    file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/blitz.html)
-    add_custom_command(COMMAND ${TEXI2HTML} ${TEXI_PROG_ARGS} --subdir=blitz.html --split=chapter ${TEXI_SRC}
+    file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/html)
+    add_custom_command(COMMAND ${TEXI2HTML} ${TEXI_PROG_ARGS} --split=chapter ${TEXI_SRC}
                        TARGET  blitz-doc
-                       OUTPUTS blitz.html)
-    install(DIRECTORY blitz.html DESTINATION ${CMAKE_INSTALL_DOCDIR})
+                       OUTPUTS html)
+    install(DIRECTORY html DESTINATION ${CMAKE_INSTALL_DOCDIR})
 endif()
 
 find_program(TEXI2PDF texi2pdf
@@ -77,8 +75,6 @@ foreach(i AUTHORS COPYING COPYING.LESSER COPYRIGHT LEGAL LICENSE NEWS README)
 endforeach()
 
 # Install files
-
-set(CMAKE_INSTALL_DOCDIR ${CMAKE_INSTALL_DOCDIR}-${blitz_MAJOR}.${blitz_MINOR}.${blitz_PATCH})
 
 install(FILES blitz.info DESTINATION ${CMAKE_INSTALL_INFODIR})
 install(FILES ${BLITZ_INFORMATION} DESTINATION ${CMAKE_INSTALL_DOCDIR})
