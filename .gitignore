@@ -20,8 +20,25 @@ Makefile
 Makefile.in
 m4
 
+# cmake trash
+
+blitzConfig.cmake
+blitzConfigVersion.cmake
+blitzDependencies.cmake
+CMakeCache.txt
+CMakeDoxyfile.in
+CMakeDoxygenDefaults.cmake
+CMakeFiles
+cmake_install.cmake
+CPackConfig.cmake
+CPackSourceConfig.cmake
+CTestTestfile.cmake
+DartConfiguration.tcl
+
 # Editors
-.gitignore
+.swp
+.swo
+.swn
 
 # pkgConfig
 blitz-uninstalled.pc
@@ -60,7 +77,6 @@ blitz.pc.in
 *.exe
 *.out
 *.app
-<<<<<<< HEAD
 
 # Editors trash
 .swp
