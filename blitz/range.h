@@ -62,17 +62,18 @@ const int toEnd = INT_MAX;
 
 // Class Range
 class Range : public ETBase<Range> {
+    typedef ETBase<Range> base;
 public:
     typedef int T_numtype;
-  typedef opType<T_numtype>::T_optype T_optype;
+    typedef opType<T_numtype>::T_optype T_optype;
 
-  typedef asET<T_numtype>::T_wrapped T_typeprop;
-  typedef unwrapET<T_typeprop>::T_unwrapped T_result;
+    typedef asET<T_numtype>::T_wrapped T_typeprop;
+    typedef unwrapET<T_typeprop>::T_unwrapped T_result;
 
     typedef void T_ctorArg1;
     typedef char       T_ctorArg2;    // dummy
-  typedef TinyVector<int, 1> T_index;
-  typedef Range T_range_result;
+    typedef TinyVector<int, 1> T_index;
+    typedef Range T_range_result;
     static const int 
     numArrayOperands = 0, 
         numTVOperands = 0, 
@@ -98,7 +99,7 @@ public:
         stride_ = 1;
     }
 
-    Range(const Range& r)
+    Range(const Range& r): base()
     {
         first_ = r.first_;
         last_ = r.last_;
@@ -183,12 +184,12 @@ public:
   { BZPRECONDITION(0); return 0; }
 
   // this is needed for the stencil expression fastRead to work
-  void _bz_offsetData(sizeType i) const{BZPRECONDITION(0);};
+  void _bz_offsetData(sizeType) const{BZPRECONDITION(0);};
 
     // and these are needed for stencil expression shift to work
-  void _bz_offsetData(sizeType offset, int dim) const {BZPRECONDITION(0);};
+  void _bz_offsetData(sizeType, int) const {BZPRECONDITION(0);};
   
-  void _bz_offsetData(sizeType offset1, int dim1, sizeType offset2, int dim2) const {BZPRECONDITION(0);};
+  void _bz_offsetData(sizeType, int, sizeType , int) const {BZPRECONDITION(0);};
 
     diffType suggestStride(int) const
     { return 1; }
@@ -198,10 +199,10 @@ public:
 
   void moveTo(int) const { BZPRECONDITION(0); }
 
-  T_numtype shift(int offset, int dim) const { 
+  T_numtype shift(int, int) const {
     BZPRECONDITION(0); return T_numtype(); }
 
-    T_numtype shift(int offset1, int dim1,int offset2, int dim2) const 
+    T_numtype shift(int, int,int, int) const
   { BZPRECONDITION(0); return T_numtype(); }
 
     template<int N_rank>
