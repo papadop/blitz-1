@@ -1,6 +1,8 @@
 if (NOT BLITZ_CONFIG_FILE)
     if (${CMAKE_CXX_COMPILER} MATCHES ".*xlc[+][+].*")
         set(BZ_CONFIG_FILE "apple")
+    elseif (${CMAKE_CXX_COMPILER} MATCHES ".*clang[+][+].*")
+        set(BZ_CONFIG_FILE "llvm")
     elseif (${CMAKE_CXX_COMPILER} MATCHES ".*cl.*")
         set(BZ_CONFIG_FILE "ms")
     elseif (${CMAKE_CXX_COMPILER} MATCHES ".*icpc.*|.*icc.*")

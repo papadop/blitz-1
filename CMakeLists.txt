@@ -45,7 +45,7 @@ set(PKGCONFIG_LIBS -lblitz)
 
 add_subdirectory(blitz)
 add_subdirectory(random)
-add_subdirectory(lib)
+add_subdirectory(src)
 if (BUILD_DOC)
     add_subdirectory(doc)
 endif()
@@ -55,6 +55,10 @@ if (BUILD_TESTING)
     add_subdirectory(examples)
     add_subdirectory(benchmarks)
 endif()
+
+#   Add a custom target to mimic autotools "make lib"
+
+add_custom_target(lib DEPENDS blitz)
 
 #   Configuration files.
 
@@ -71,14 +75,7 @@ configure_package_config_file(
 
 #   Installation
 
-install(TARGETS ${PROJECT_NAME}
-    EXPORT ${PROJECT_NAME}Targets
-    ARCHIVE DESTINATION lib
-    LIBRARY DESTINATION lib
-    RUNTIME DESTINATION bin
-    INCLUDES DESTINATION include)
-install(EXPORT ${PROJECT_NAME}Targets
-        DESTINATION lib/cmake)
+install(EXPORT ${PROJECT_NAME}Targets DESTINATION lib/cmake)
 install(FILES
         ${CMAKE_BINARY_DIR}/blitz.pc
         DESTINATION ${CMAKE_INSTALL_LIBDIR}/pkgconfig)
